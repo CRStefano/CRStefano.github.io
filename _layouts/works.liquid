@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<div class="pagehead">
+  <h1 class="page-title">{{ page.heading | default: page.title }}</h1>
+  <div class="under"></div>
+</div>
+
+<div class="works-cols">
+  {% assign columns = "left,right" | split: "," %}
+  {% for c in columns %}
+    <div class="works-col">
+      {% assign items = site.data.works | where: "col", c %}
+      {% for w in items %}
+        <div class="w">
+          <h3>{{ w.title }}</h3>
+          <p>{{ w.desc }}{% if w.url %} &ndash; <a href="{{ w.url }}" target="_blank" rel="noopener">HERE</a>{% endif %}</p>
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>
