@@ -76,8 +76,8 @@ body {
   background: transparent;
   font-family: var(--sc-serif);
   font-weight: 400;
-  font-size: 19px;
-  line-height: 1.72;
+  font-size: 18px;
+  line-height: 1.58;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -351,10 +351,10 @@ html[data-theme="dark"] #light-toggle::after {
 }
 
 .home .intro p {
-  max-width: 31em;
-  margin: 0 0 13px;
-  font-size: clamp(16.5px, 1.35vw, 19px);
-  line-height: 1.62;
+  max-width: 33em;
+  margin: 0 0 6px;
+  font-size: clamp(16px, 1.3vw, 18px);
+  line-height: 1.5;
   font-weight: 400;
 }
 
@@ -430,8 +430,8 @@ html[data-theme="dark"] #light-toggle::after {
 
 .home .edu .entry p {
   margin: 0;
-  font-size: 17.5px;
-  line-height: 1.58;
+  font-size: 16.5px;
+  line-height: 1.5;
 }
 
 .home .edu .entry a {
@@ -443,7 +443,8 @@ html[data-theme="dark"] #light-toggle::after {
 .works-cols {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0 80px;
+  gap: 0 64px;
+  max-width: 980px;
   padding-bottom: 110px;
 }
 
@@ -468,8 +469,8 @@ html[data-theme="dark"] #light-toggle::after {
 
 .works-cols .w p {
   margin: 0;
-  font-size: 17px;
-  line-height: 1.56;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .works-cols .w a {
@@ -543,6 +544,28 @@ html[data-theme="dark"] #light-toggle::after {
   color: var(--sc-accent);
   transform: translateY(-2px);
   text-decoration: none;
+}
+
+/* --- saggio, in fondo alla pagina Contact --- */
+.essay {
+  max-width: 760px;
+  margin-top: 70px;
+  padding-bottom: 120px;
+}
+
+.essay h2 {
+  margin: 0 0 24px;
+  font-family: var(--sc-serif);
+  font-weight: 700;
+  font-size: clamp(26px, 3.4vw, 38px);
+  line-height: 1.18;
+  color: var(--global-text-color);
+}
+
+.essay p {
+  margin: 0 0 18px;
+  font-size: 17px;
+  line-height: 1.55;
 }
 
 /* --- BLOG --- */

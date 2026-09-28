@@ -37,3 +37,13 @@ layout: default
     </div>
   </div>
 </div>
+
+<!-- Il saggio compare QUI, sotto le icone social, esattamente come sul sito Canva:
+     non e' una pagina "Writing" separata, vive dentro la pagina Contact.
+     Testo in _data/essay.yml, cosi' si corregge senza toccare questo file. -->
+<div class="essay">
+  <h2>{{ site.data.essay.heading }}</h2>
+  {% for p in site.data.essay.paragraphs %}
+    <p>{{ p }}</p>
+  {% endfor %}
+</div>
