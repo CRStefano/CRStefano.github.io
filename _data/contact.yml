@@ -1,0 +1,25 @@
+# =============================================================================
+# Contact  (pagina "Contact me")
+# =============================================================================
+personal_mail:
+  label: "Personal mail:"
+  display: "stefano.coelatirama03@gmail.com"    # testo mostrato
+  address: "stefano.coelatirama03@gmail.com"    # indirizzo usato dal link mailto
+academic_mail:
+  label: "Academic mail:"
+  display: "stefano.coelati-rama@edu.unito.it"
+  address: "stefano.coelati-rama@edu.unito.it"
+resume:
+  label: "Find my resume"
+  link_text: "HERE"
+  url: "https://drive.google.com/file/d/1vQ45Ycg5CHkrSDKumt4SaCyyugxCOCtd/view?usp=sharing"
+
+connect_label: "Connect with me"
+# icon: instagram | x | facebook | linkedin | philpeople | github
+socials:
+  - { name: "Instagram",  icon: "instagram",  url: "https://www.instagram.com/k.kur0/" }
+  - { name: "X",          icon: "x",          url: "https://x.com/StefanoCoelati" }
+  - { name: "Facebook",   icon: "facebook",   url: "https://www.facebook.com/stefano.coelatirama/" }
+  - { name: "LinkedIn",   icon: "linkedin",   url: "https://www.linkedin.com/in/stefanocoelatirama/" }
+  - { name: "PhilPeople", icon: "philpeople", url: "https://philpeople.org/profiles/stefano-coelati-rama" }
+  - { name: "GitHub",     icon: "github",     url: "https://github.com/CRStefano" }
