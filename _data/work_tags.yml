@@ -10,6 +10,9 @@
 # I pulsanti sopra l'elenco sono in ordine di utilizzo (il piu' usato per primo); l'ordine
 # di questo file conta solo a parita'. Un tag compare solo se almeno un lavoro lo usa.
 # =============================================================================
+- id: ethics
+  label: Ethics
+  aliases: [Ethics, etica, morale, moral, meta-ethics, meta-etica]
 
 - id: information
   label: Information theory
