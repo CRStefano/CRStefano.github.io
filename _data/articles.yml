@@ -1,0 +1,32 @@
+# =============================================================================
+# ARTICLES  (pagina /articles/)
+#
+# Ogni articolo:
+#   title    titolo
+#   date     data, nel formato AAAA-MM-GG
+#   url      il link che si apre cliccando sul titolo (lo decidi tu: rivista,
+#            PDF, PhilPapers, Google Drive, un altro sito...)
+#   summary  una o due righe sotto il titolo (facoltativo)
+#   tags     etichette scelte tra quelle di _data/tags.yml (meglio 1-3)
+#   where    facoltativo: dove e' uscito (es. "Il Foglio"), compare accanto alla data
+#
+# L'ORDINE NON CONTA: la pagina li mette sempre dal piu' recente al piu' vecchio.
+#
+# L'elenco e' vuoto finche' non aggiungi il primo articolo (la pagina mostra
+# "No articles yet"). Per aggiungerne uno: togli il "#" davanti alle righe di
+# un esempio qui sotto (tutte, da "- title" a "tags") e cambia i campi.
+# Le righe che iniziano con "#" sono solo commenti: il sito le ignora.
+# =============================================================================
+
+# - title: "Titolo del primo articolo"
+#   date: 2026-10-01
+#   url: "https://esempio.it/il-mio-articolo"
+#   where: "Nome della rivista"
+#   summary: "Una riga che spiega di cosa parla."
+#   tags: [geopolitics, politics]
+
+# - title: "Titolo del secondo articolo"
+#   date: 2026-06-15
+#   url: "https://philpapers.org/rec/XXXXX"
+#   summary: "Una riga che spiega di cosa parla."
+#   tags: [logic, philosophy]
