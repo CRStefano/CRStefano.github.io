@@ -252,6 +252,7 @@ exclude:
   - _projects/
   - _books/
   - _teachings/
+  - assets/jupyter/
   - _pages/books.md
   - _pages/cv.md
   - _pages/dropdown.md
