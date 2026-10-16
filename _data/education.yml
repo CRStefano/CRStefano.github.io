@@ -2,6 +2,13 @@
 # Education & Certification  (sezione in fondo alla Home)
 # lines: una riga per voce; e' ammesso HTML (per i link).
 # =============================================================================
+- title: "Mathematical Single Courses"
+  lines:
+    - "University of Turin"
+    - "Examined coursework: Mathematical Analysis I (A & B), Probability, Statistics"
+    - "Additional courses followed: Mathematical Analysis II, Linear Algebra, Algebra I, Geometry I, Probability II."
+    - "2026 - 2027"
+
 - title: "Bachelor Degree"
   lines:
     - "University of Turin"
