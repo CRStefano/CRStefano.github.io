@@ -1,22 +1,40 @@
 ---
 layout: default
 ---
-<div class="pagehead">
+{%- comment -%}
+  Works: elenco in _data/works.yml.
+  Sul desktop ogni lavoro va nella posizione esatta che aveva su Canva (campo "canva"
+  di ogni voce). Se anche una sola voce non ha il campo "canva" (per esempio un lavoro
+  nuovo), la pagina passa automaticamente a due colonne ordinate, senza sovrapposizioni.
+{%- endcomment -%}
+{%- assign all_placed = true -%}
+{%- for w in site.data.works -%}
+  {%- unless w.canva -%}{%- assign all_placed = false -%}{%- endunless -%}
+{%- endfor -%}
+<div class="works-page{% if all_placed %} canva{% endif %}">
   <h1 class="page-title">{{ page.heading | default: page.title }}</h1>
-  <div class="under"></div>
-</div>
 
-<div class="works-cols">
-  {% assign columns = "left,right" | split: "," %}
-  {% for c in columns %}
-    <div class="works-col">
-      {% assign items = site.data.works | where: "col", c %}
-      {% for w in items %}
-        <div class="w">
-          <h3>{{ w.title }}</h3>
-          <p>{{ w.desc }}{% if w.url %} &ndash; <a href="{{ w.url }}" target="_blank" rel="noopener">HERE</a>{% endif %}</p>
-        </div>
-      {% endfor %}
-    </div>
-  {% endfor %}
+  <div class="works-cols">
+    {% assign columns = 'left,right' | split: ',' %}
+    {% for c in columns %}
+      <div class="works-col">
+        {% assign items = site.data.works | where: 'col', c %}
+        {% for w in items %}
+          {%- assign g = w.canva -%}
+          <div
+            class="w"
+            {% if all_placed %}
+              style="--s: {{ g.slide }}; --x: {{ g.x }}; --y: {{ g.y }}; --w: {{ g.w }}; --hw: {{ g.hw | default: g.w }}; --g: {{ g.gap | default: 7.97 }};"
+            {% endif %}
+          >
+            <h3>{{ w.title }}</h3>
+            <p>
+              {{- w.desc | strip | newline_to_br -}}
+              {%- if w.url %} {{ w.sep | default: '–' }} <a href="{{ w.url }}" target="_blank" rel="noopener">HERE</a>{% endif -%}
+            </p>
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
 </div>

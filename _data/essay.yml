@@ -4,7 +4,11 @@
 # hai mandato: RILEGGILO con calma, un nome o una virgola potrebbero essere
 # stati letti male (in particolare il periodo su Hayek/Schmitt/Barro/Alchian).
 # =============================================================================
-heading: "My (currently) Philosophical Ideas, Poorly Summarized:"
+# titolo, riga per riga come su Canva (sui telefoni le righe si uniscono)
+heading_lines: ["My (currently)", "Philosophical Ideas,", "Poorly Summarized:"]
+# Paragrafi: tra uno e l'altro c'e' una riga vuota, come su Canva. Un paragrafo scritto
+# come  - tight: true / text: "..."  va solo a capo, senza riga vuota (cosi' su Canva
+# e' "Culture, in this sense...").
 paragraphs:
   - >-
     My philosophical stance emerges from the convergence of fallibilism, scientific
@@ -32,14 +36,13 @@ paragraphs:
     Ludwig Boltzmann, Dretske, Reichenbach, Shannon, and Wolpert (among many
     others). I adopt a deflationary and structural approach to philosophical
     inquiry. Objects, identities, and persistence are not treated as primitive
-    givens, but as functional roles within systems of relations. For this reason I
+    givens, but as functional roles within systems of relations. For this reason, I
     privilege formal tools such as topology, model and category theory, which
     allow identity, continuity, and transformation to be described in terms of
     structural relations, mappings, and invariants, rather than through intrinsic
     properties. The world is thus approached as a dynamic network of relations,
     describable through informational structures, hierarchical models, or
     conditional configurations, never as a mere collection of isolated entities.
-  - >-
     Within this framework, history is not a linear or teleological process, nor
     the unfolding of moral ideals, but an emergent trajectory shaped by
     technological, institutional, and ecological variation. Change occurs through
@@ -49,13 +52,14 @@ paragraphs:
     collective will, but because certain organizational structures outperform
     others in terms of adaptability, scalability, and resilience under specific
     material and informational conditions.
-  - >-
-    Culture, in this sense, functions as a selectively transmitted system of
-    information, and human historicity is expressed through the accumulation,
-    transmission, and reconfiguration of such structures over time. Failure is not
-    a deviation from progress, but a central epistemic and adaptive mechanism: it
-    is through breakdowns, inefficiencies, and competitive elimination that
-    informational systems improve.
+  - tight: true
+    text: >-
+      Culture, in this sense, functions as a selectively transmitted system of
+      information, and human historicity is expressed through the accumulation,
+      transmission, and reconfiguration of such structures over time. Failure is not
+      a deviation from progress, but a central epistemic and adaptive mechanism: it
+      is through breakdowns, inefficiencies, and competitive elimination that
+      informational systems improve.
   - >-
     My political philosophy is grounded in scientific rationality and pragmatism,
     which I regard as the most reliable methods for understanding and managing
@@ -81,7 +85,7 @@ paragraphs:
   - >-
     This commitment to institutional adaptability and constrained governance is
     influenced by the economic work of Milton Friedman, by neoclassical growth
-    models such as those of Solow and McKenzie, and by Schumpeter's theory, as
+    models such as those of Solow and McKenzie, and by Schumpeter’s theory, as
     well as by the analyses of Hayek (Carl Schmitt, Barro, Armen Alchian) and von
     Neumann on decentralized coordination and strategic interaction.
   - >-
@@ -102,8 +106,8 @@ paragraphs:
     The idea of a negative or constraint-based realism is particularly compelling
     to me, in which reality is approached primarily through the limits, failures,
     and corrections it imposes on our models rather than through access to
-    positive essences. In this sense, processes of negotiation between agents,
-    institutions, and models constitute a fundamental mechanism across political,
+    positive essences. In this sense, processes of negotiation—between agents,
+    institutions, and models—constitute a fundamental mechanism across political,
     economic, social, and epistemic domains, serving both as a practical
     coordination tool and as a heuristic for managing systemic uncertainty. Yes, I
     love U.Eco.

@@ -11,18 +11,25 @@ i file che lo **sovrascrivono**). Indirizzo: https://crstefano.github.io
 | Lavori (Projects, Work & Talks)  | `_data/works.yml` — un blocco per lavoro; senza `url` la voce non ha "HERE"                                                               |
 | Education & Certification        | `_data/education.yml`                                                                                                                     |
 | Mail, CV, social                 | `_data/contact.yml`                                                                                                                       |
-| Blog (ora rimanda a Substack)    | `_pages/blog.md`                                                                                                                          |
-| Colori, font, spaziature, sfondo | `_sass/_stefano.scss` (variabili in cima al file)                                                                                         |
+| Articoli (pagina Articles)       | `_data/articles.yml` — titolo, data, link che scegli tu, riassunto, tag; l'ordine per data è automatico                                    |
+| Blog (post del Substack)         | `_data/blog.yml` — stessa struttura, i link vanno ai post su Substack                                                                      |
+| Tag e loro sinonimi per la ricerca | `_data/tags.yml` — elenco unico dei tag del sito (es. "geopolitica" trova "Geopolitics")                                                 |
+| Saggio in fondo a Contact        | `_data/essay.yml`                                                                                                                         |
+| Colori, font, spaziature, sfondo | `_sass/_stefano.scss` (variabili in cima; sezione 7 = posizioni del desktop copiate da Canva)                                              |
 | Foto profilo                     | `assets/img/stefano.jpg` (ora è un segnaposto ritagliato da uno screenshot: sostituiscila con la versione HD, anche più grande, quadrata) |
 | Nome, dominio, font caricati     | `_config.yml`                                                                                                                             |
 
 ## File nuovi o sostituiti
 
-- `_layouts/default.liquid` (sostituito: aggiunge gli strati di sfondo), `home.liquid`, `works.liquid`, `contact.liquid` (nuovi)
-- `_includes/header.liquid` (sostituito: 4 voci sempre in fila + interruttore; il menu del tema sul telefono
-  si nascondeva con regole `!important` che il CSS del sito non può battere)
+- `_layouts/default.liquid` (sostituito: strati di sfondo + calcolo dell'unità `--u` del layout Canva),
+  `home.liquid`, `works.liquid`, `contact.liquid`, `feed.liquid` (nuovi)
+- `_includes/header.liquid` (sostituito: menu su una riga come su Canva + interruttore), `_includes/sc-feed.liquid`
+  (elenco di Articles/Blog), `assets/js/sc-feed.js` (lente di ricerca e filtri per tag)
+- Layout desktop (da 861 px): ogni elemento è nella posizione esatta del file Canva (diapositiva 1200 × 674.671,
+  ingrandita con la finestra fino a 1366 px). Sotto 861 px: layout a colonna per i telefoni.
 - `assets/css/main.scss` (copia del tema + una riga che carica `_stefano.scss`)
-- `assets/js/theme.js` (copia del tema con interruttore a **due** stati, chiaro/scuro)
+- `assets/js/theme.js` (copia del tema con interruttore a **due** stati; ogni visita parte dal tema **chiaro**,
+  la scelta vale finché la scheda resta aperta)
 - `assets/img/bg/*.webp` (decorazioni e grana ricavate dai tuoi sfondi Canva), `assets/img/stefano.jpg`
 - `_config.yml`: nome, url, font Oswald+Lora, ricerca/barra di avanzamento spente, pagine e collezioni
   del template **escluse** (`exclude:`), non cancellate: per riattivarne una basta toglierla dall'elenco.

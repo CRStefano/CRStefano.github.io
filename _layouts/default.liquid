@@ -30,6 +30,21 @@
       <meta http-equiv="refresh" content="3; url={{ redirect }}">
     {% endif %}
     {% include head.liquid %}
+    <!-- [Stefano] Unita' del layout Canva: --u = min(larghezza utile, 1366px) / 1200.
+         Usa clientWidth (larghezza SENZA barra di scorrimento), come fa Canva: cosi'
+         le posizioni coincidono al pixel. Vedi l'intestazione di _sass/_stefano.scss. -->
+    <script>
+      (function () {
+        var d = document.documentElement;
+        function setU() {
+          d.style.setProperty("--u", Math.min(d.clientWidth || window.innerWidth, 1366) / 1200 + "px");
+        }
+        setU();
+        window.addEventListener("resize", setU);
+        document.addEventListener("DOMContentLoaded", setU);
+        if (window.ResizeObserver) new ResizeObserver(setU).observe(d);
+      })();
+    </script>
   </head>
 
   <!-- Body -->
@@ -51,7 +66,7 @@
     {% include header.liquid %}
 
     <!-- Content -->
-    <div class="container mt-5" role="main">
+    <div class="sc-main" role="main">
       {% if page.toc and page.toc.sidebar %}
         {% assign toc_collapse = page.toc.collapse | default: 'expanded' %}
         {% assign toc_collapse_depth = page.toc.collapse_depth | default: '' %}

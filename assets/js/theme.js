@@ -3,15 +3,22 @@
 // Toggle through light, dark, and system theme settings.
 // [Stefano] Interruttore a due stati (chiaro <-> scuro), come sul vecchio sito Canva.
 // Il tema originale faceva un ciclo a tre stati (sistema -> chiaro -> scuro): con il
-// sistema in modalita' chiara il primo click non cambiava nulla. Al primo accesso
-// il tema segue comunque le preferenze del sistema (vedi determineThemeSetting).
+// sistema in modalita' chiara il primo click non cambiava nulla.
+// [Stefano] Ogni volta che si apre il sito si parte dalla versione CHIARA (come la
+// Home Light di Canva), anche se il computer e' in modalita' scura. La scelta fatta
+// con l'interruttore vale per la visita in corso (passando da una pagina all'altra)
+// ed e' salvata in sessionStorage, che il browser cancella quando si chiude la scheda.
 let toggleThemeSetting = () => {
   setThemeSetting(determineComputedTheme() == "dark" ? "light" : "dark");
 };
 
 // Change the theme setting and apply the theme.
 let setThemeSetting = (themeSetting) => {
-  localStorage.setItem("theme", themeSetting);
+  try {
+    sessionStorage.setItem("theme", themeSetting);
+  } catch (e) {
+    /* navigazione privata o archiviazione bloccata: il tema vale solo per questa pagina */
+  }
 
   document.documentElement.setAttribute("data-theme-setting", themeSetting);
 
@@ -260,9 +267,13 @@ let transTheme = () => {
 // Determine the expected state of the theme toggle, which can be "dark", "light", or
 // "system". Default is "system".
 let determineThemeSetting = () => {
-  let themeSetting = localStorage.getItem("theme");
-  if (themeSetting != "dark" && themeSetting != "light" && themeSetting != "system") {
-    themeSetting = "system";
+  let themeSetting = null;
+  try {
+    themeSetting = sessionStorage.getItem("theme");
+  } catch (e) {}
+  // [Stefano] predefinito: chiaro (il tema originale usava "system")
+  if (themeSetting != "dark" && themeSetting != "light") {
+    themeSetting = "light";
   }
   return themeSetting;
 };

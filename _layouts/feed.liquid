@@ -1,0 +1,15 @@
+---
+layout: default
+---
+{%- comment -%}
+  Pagine "Articles" e "Blog": titolo + elenco (vedi _includes/sc-feed.liquid).
+  Nel front matter della pagina:
+    feed:   articles | blog       quale file di _data usare
+    label:  "articles" | "posts"  parola usata nei messaggi ("No articles yet")
+{%- endcomment -%}
+<div class="feed-page">
+  <h1 class="page-title">{{ page.heading | default: page.title }}</h1>
+  {% include sc-feed.liquid items=site.data[page.feed] label=page.label %}
+  {{ content }}
+</div>
+<script src="{{ '/assets/js/sc-feed.js' | relative_url | bust_file_cache }}" defer></script>

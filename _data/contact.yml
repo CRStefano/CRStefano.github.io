@@ -3,7 +3,8 @@
 # =============================================================================
 personal_mail:
   label: "Personal mail:"
-  display: "stefano.coelatirama03@gmail.com"    # testo mostrato
+  display: "stefano.coelatirama03@gmail.com"    # testo mostrato (se manca display_lines)
+  display_lines: ["stefano.coelatirama03@gmail", ".com"]   # come va a capo nel blocco, come su Canva
   address: "stefano.coelatirama03@gmail.com"    # indirizzo usato dal link mailto
 academic_mail:
   label: "Academic mail:"
@@ -14,7 +15,7 @@ resume:
   link_text: "HERE"
   url: "https://drive.google.com/file/d/1vQ45Ycg5CHkrSDKumt4SaCyyugxCOCtd/view?usp=sharing"
 
-connect_label: "Connect with me"
+connect_label: "Connect with me"   # in maiuscolo sulla pagina
 # icon: instagram | x | facebook | linkedin | philpeople | github
 socials:
   - { name: "Instagram",  icon: "instagram",  url: "https://www.instagram.com/k.kur0/" }

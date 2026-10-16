@@ -1,17 +1,12 @@
 ---
-layout: default
+layout: feed
 title: blog
+heading: "Blog"
 permalink: /blog/
 nav: true
-nav_order: 3
+nav_order: 4
+feed: blog # elenco in _data/blog.yml (i post del Substack)
+label: posts
 ---
 
-<div class="pagehead">
-  <h1 class="page-title">Blog</h1>
-  <div class="under"></div>
-</div>
-
-<div class="blog">
-  <p>My writing lives on Substack.</p>
-  <a class="btn-pill" href="https://stefanocoelatirama.substack.com/" target="_blank" rel="noopener">Open the blog &rarr;</a>
-</div>
+<p class="feed-more"><a href="https://stefanocoelatirama.substack.com/" target="_blank" rel="noopener">Subscribe on Substack &rarr;</a></p>
