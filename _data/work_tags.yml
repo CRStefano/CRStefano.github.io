@@ -1,0 +1,52 @@
+# =============================================================================
+# ETICHETTE (tag) della pagina Works
+#
+# Elenco a parte rispetto a quello di Articles e Blog (_data/tags.yml): qui ci sono gli
+# argomenti dei tuoi lavori. Stessa struttura:
+#   id       il nome da scrivere nel campo "tags" di un lavoro (minuscolo, senza spazi)
+#   label    come appare sul sito
+#   aliases  altre parole che, cercate con la lente, trovano questo tag (anche in italiano)
+#
+# I pulsanti sopra l'elenco sono in ordine di utilizzo (il piu' usato per primo); l'ordine
+# di questo file conta solo a parita'. Un tag compare solo se almeno un lavoro lo usa.
+# =============================================================================
+
+- id: information
+  label: Information theory
+  aliases: [informazione, teoria dell'informazione, entropia, entropy, shannon, information gain, semantic information, informazione semantica]
+
+- id: mind
+  label: Philosophy of mind
+  aliases: [mente, filosofia della mente, cognition, cognizione, cognitive science, scienze cognitive, enactivism, enattivismo, predictive coding, intelligence, intelligenza]
+
+- id: logic
+  label: Logic & formal methods
+  aliases: [logica, logica formale, formal logic, category theory, teoria delle categorie, mathematics, matematica, formal, formale]
+
+- id: epistemology
+  label: Epistemology
+  aliases: [epistemologia, reasons, ragioni, inquiry, indagine, knowledge, conoscenza]
+
+- id: ontology
+  label: Ontology & identity
+  aliases: [ontologia, identita, identity, persistence, persistenza, personal identity, ship of theseus]
+
+- id: metaphysics
+  label: Metaphysics
+  aliases: [metafisica, deflationism, deflazionismo, carnap, time, tempo, contextualism, contestualismo]
+
+- id: language
+  label: Language & meaning
+  aliases: [linguaggio, significato, meaning, semantics, semantica, morpheme, morfema, signals, segnali]
+
+- id: biology
+  label: Biology & evolution
+  aliases: [biologia, evoluzione, evolution, thermodynamics, termodinamica, free energy, energia libera, living systems, sistemi viventi]
+
+- id: science
+  label: Science
+  aliases: [scienza, naturalism, naturalismo, physics, fisica, philosophy of science, filosofia della scienza]
+
+- id: tools
+  label: Tools & typesetting
+  aliases: [strumenti, typst, typesetting, composizione, latex, programming, programmazione, manual, manuale]

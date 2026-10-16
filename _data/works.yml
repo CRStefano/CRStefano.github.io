@@ -1,88 +1,83 @@
 # =============================================================================
-# Works  (pagina "Projects, Work & Talks")
+# WORKS  (pagina /works/ "Projects, Work & Talks")
 #
-# Ogni voce:
-#   col    left | right      colonna in cui compare (sui telefoni: una sotto l'altra)
-#   title  titolo con anno
-#   desc   descrizione. Per andare a capo come su Canva usa  |  e scrivi su piu' righe.
-#   url    link della parola "HERE" (se manca, niente "HERE")
-#   sep    trattino prima di "HERE" (facoltativo, di default "–")
-#   canva  posizione sul desktop, copiata dal file Canva (unita' della diapositiva
-#          1200 x 674.671):  slide = 0 prima schermata, 1 seconda;  x, y = angolo in
-#          alto a sinistra del titolo;  w = larghezza del testo;  hw = larghezza del
-#          titolo;  gap = spazio tra titolo e testo.
+# Stessa struttura del Blog: un blocco per lavoro, la pagina li mette dal piu'
+# recente al piu' vecchio e ha la lente di ricerca e i tag.
 #
-# Per AGGIUNGERE un lavoro: copia un blocco e togli la riga "canva". Finche' anche
-# una sola voce non ha "canva", la pagina usa due colonne ordinate e automatiche
-# (niente sovrapposizioni). Le posizioni esatte valgono solo per le 9 voci di Canva.
+# Ogni lavoro:
+#   title    titolo (senza l'anno: l'anno si vede gia' dalla data)
+#   date     AAAA-MM-GG. Sulla pagina compare SOLO L'ANNO, ma giorno e mese servono a
+#            ordinare i lavori dello stesso anno (il piu' recente ha la data piu' alta).
+#            Quelli qui sotto hanno mese e giorno inventati per tenere l'ordine che
+#            avevano su Canva: cambiali se vuoi un altro ordine.
+#   url      link (PhilPapers, GitHub, ...). Se manca, il titolo non e' cliccabile.
+#   summary  descrizione sotto il titolo
+#   where    (facoltativo) tipo di lavoro, scritto accanto all'anno: Paper, Manual, ...
+#   tags     etichette scelte tra quelle di _data/work_tags.yml (meglio 1-3)
 #
-# I link qui sotto sono quelli del sito Canva pubblicato (ricontrollati voce per voce).
+# Per AGGIUNGERE un lavoro: copia un blocco e cambia i campi. L'ordine nel file non conta.
+# I tag sono una mia PROPOSTA, dedotta dalle descrizioni: correggili liberamente.
 # =============================================================================
 
-# ---------------------------- colonna sinistra -------------------------------
-- col: left
-  title: "The Mind as an Information Filter – 2026"
-  desc: "Living systems perceive little of their environment because acquiring information costs free energy needed for survival. This paper introduces a thermodynamic criterion (S-FEEF) proving that compressing perception optimizes metabolic costs against biological viability."
+- title: "The Mind as an Information Filter"
+  date: 2026-09-05
   url: "https://philpapers.org/rec/COETMA-5"
-  canva: { slide: 0, x: 90.29, y: 217.95, w: 397.858, hw: 397.858, gap: 5.57 }
+  where: Paper
+  summary: "Living systems perceive little of their environment because acquiring information costs free energy needed for survival. This paper introduces a thermodynamic criterion (S-FEEF) proving that compressing perception optimizes metabolic costs against biological viability."
+  tags: [information, biology, mind]
 
-- col: left
-  title: "Typst: From Zero to Hero – 2026"
-  desc: "This technical manual explores the transition from traditional typesetting systems to Typst, utilizing its unique integration of markup, scripting, and real-time compilation to redefine document production in academia and beyond. It emphasizes the relevance of bridging intuitive syntax with high-level design in modern document engineering."
+- title: "Analysis of Supererogatory Reasons"
+  date: 2026-09-04
+  url: "https://philpapers.org/rec/COEIAA-4"  # NB: su Canva questo link e' lo stesso di "Intelligence as Adherence to Frameworks"
+  where: Bachelor's thesis
+  summary: "This is my bachelor's thesis and proposes a computational operationalization of epistemic non-necessity through Information Gain. By developing a quantitative criterion based on Shannon entropy, the paper defines an algorithm to identify informational redundancy of reasons within specific contexts of inquiry."
+  tags: [epistemology, information]
+
+- title: "Typst: From Zero to Hero"
+  date: 2026-09-03
   url: "https://github.com/CRStefano/Typst-Handbook-A-Comprehensive-Guide/blob/main/Typst%20Handbook_FROM%20ZERO%20TO%20HERO_Stefano%20Coelati%20Rama.pdf"
-  sep: "—"
-  canva: { slide: 0, x: 90.29, y: 390.38, w: 285.607, hw: 318.197, gap: 7.98 }
+  where: Manual
+  summary: "This technical manual explores the transition from traditional typesetting systems to Typst, utilizing its unique integration of markup, scripting, and real-time compilation to redefine document production in academia and beyond. It emphasizes the relevance of bridging intuitive syntax with high-level design in modern document engineering."
+  tags: [tools]
 
-- col: left
-  title: "From Arousal to Morpheme – 2025"
-  desc: "This paper proposes a biologically grounded model of meaning emergence. By linking arousal-based vocalizations to inferential social roles, I explain how signals evolve into conventional morphemes without prior representation"
-  url: "https://philpapers.org/rec/COEFAT-2"
-  sep: "-"
-  canva: { slide: 1, x: 90.96, y: 67.47, w: 297.88, hw: 331.87, gap: 7.97 }
-
-- col: left
-  title: "Naturalizing Time – 2024"
-  desc: "This university seminar analyzed the concept of time from a strictly scientific and naturalistic perspective, defining it with the concept of “level of reality” in a pragmatic and pluralistic way"
-  url: "https://docs.google.com/presentation/d/10pO7h6Hxwc6nyJvL6WifzXJoF-gxtvua/edit?usp=sharing&rtpof=true&sd=true"
-  sep: "-"
-  canva: { slide: 1, x: 90.96, y: 282.15, w: 289.707, hw: 289.707, gap: 7.97 }
-
-- col: left
-  title: "Epitaph for Metaphysics, 2023"
-  desc: |
-    A (old) Paper for a university exam.
-    In this paper, I will defend Carnap's Deflationism and Contextualism against metaphysical claims
-  url: "https://philpapers.org/rec/COELDM"
-  sep: "-"
-  canva: { slide: 1, x: 90.96, y: 455.04, w: 289.707, hw: 289.707, gap: 7.98 }
-
-# ---------------------------- colonna destra ---------------------------------
-- col: right
-  title: "Analysis of Supererogatory Reasons – 2026"
-  desc: |
-    This is my bachelor's thesis and proposes a computational operationalization of epistemic non-necessity through Information Gain.
-    By developing a quantitative criterion based on Shannon entropy, the paper defines an algorithm to identify informational redundancy of reasons within specific contexts of inquiry.
-  # NB: su Canva questo link e' lo stesso di "Intelligence as Adherence to Frameworks"
+- title: "Intelligence as Adherence to Frameworks"
+  date: 2026-09-02
   url: "https://philpapers.org/rec/COEIAA-4"
-  canva: { slide: 0, x: 511.88, y: 217.95, w: 331.781, hw: 331.781, gap: 5.57 }
+  where: Paper
+  summary: "This paper proposes a formal, context-based theory of intelligence, defining it as pragmatic adherence to operational frameworks and providing a taxonomy to distinguish error from cognitive stupidity. It also challenges the notion of ex nihilo creativity by grounding innovation in pre-existing contextual structures."
+  tags: [mind, logic]
 
-- col: right
-  title: "Intelligence as Adherence to Frameworks – 2026"
-  desc: "This paper proposes a formal, context-based theory of intelligence, defining it as pragmatic adherence to operational frameworks and providing a taxonomy to distinguish error from cognitive stupidity. It also challenges the notion of ex nihilo creativity by grounding innovation in pre-existing contextual structures."
-  url: "https://philpapers.org/rec/COEIAA-4"
-  sep: "-"
-  canva: { slide: 0, x: 511.88, y: 434.12, w: 331.781, hw: 331.781, gap: 5.57 }
-
-- col: right
-  title: "Identity as Information-Preserving Morphism – 2026"
-  desc: "This paper introduces a novel framework that redefines identity and persistence using category theory, information theory, and relational ontology. By treating entities as informational nodes rather than fixed substances, it provides precise, mathematical solutions to classic puzzles like the Ship of Theseus, personal identity, and biological turnover."
+- title: "Identity as Information-Preserving Morphism"
+  date: 2026-09-01
   url: "https://philpapers.org/rec/COEIAI"
-  sep: "-"
-  canva: { slide: 1, x: 507.53, y: 67.47, w: 331.781, hw: 331.781, gap: 5.56 }
+  where: Paper
+  summary: "This paper introduces a novel framework that redefines identity and persistence using category theory, information theory, and relational ontology. By treating entities as informational nodes rather than fixed substances, it provides precise, mathematical solutions to classic puzzles like the Ship of Theseus, personal identity, and biological turnover."
+  tags: [ontology, logic, information]
 
-- col: right
-  title: "Enactivism and Predictive Coding, 2024"
-  desc: "This university (draft) paper explores the mind's emergence via information theory, predictive coding, and enactivism, emphasizing the relevance of linking predictive and semantic frameworks in cognitive science and philosophy."
+- title: "From Arousal to Morpheme"
+  date: 2025-06-01
+  url: "https://philpapers.org/rec/COEFAT-2"
+  where: Paper
+  summary: "This paper proposes a biologically grounded model of meaning emergence. By linking arousal-based vocalizations to inferential social roles, I explain how signals evolve into conventional morphemes without prior representation."
+  tags: [language, biology, mind]
+
+- title: "Naturalizing Time"
+  date: 2024-06-02
+  url: "https://docs.google.com/presentation/d/10pO7h6Hxwc6nyJvL6WifzXJoF-gxtvua/edit?usp=sharing&rtpof=true&sd=true"
+  where: Seminar
+  summary: "This university seminar analyzed the concept of time from a strictly scientific and naturalistic perspective, defining it with the concept of “level of reality” in a pragmatic and pluralistic way."
+  tags: [metaphysics, science]
+
+- title: "Enactivism and Predictive Coding"
+  date: 2024-06-01
   url: "https://philpapers.org/rec/COEEEC"
-  sep: "-"
-  canva: { slide: 1, x: 507.53, y: 319.39, w: 289.707, hw: 289.707, gap: 8.0 }
+  where: Paper
+  summary: "This university (draft) paper explores the mind's emergence via information theory, predictive coding, and enactivism, emphasizing the relevance of linking predictive and semantic frameworks in cognitive science and philosophy."
+  tags: [mind, information]
+
+- title: "Epitaph for Metaphysics"
+  date: 2023-06-01
+  url: "https://philpapers.org/rec/COELDM"
+  where: Paper
+  summary: "A (old) paper for a university exam. In this paper, I will defend Carnap's Deflationism and Contextualism against metaphysical claims."
+  tags: [metaphysics, language]

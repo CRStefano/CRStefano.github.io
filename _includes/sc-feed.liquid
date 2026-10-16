@@ -2,7 +2,10 @@
   Elenco a scorrimento verticale per Articles e Blog (stessa struttura per entrambe).
     include.items  elenco di voci (_data/articles.yml o _data/blog.yml)
     include.label  nome al plurale per i messaggi ("articles", "posts")
-  Ordine: dal piu' recente. Ricerca e filtri: assets/js/sc-feed.js.
+    include.taglist elenco dei tag ammessi (_data/tags.yml oppure _data/work_tags.yml)
+    include.datefmt formato della data (es. '%-d %b %Y' oppure solo l'anno '%Y')
+  Ordine delle voci: dal piu' recente. Ordine dei pulsanti-tag: dal piu' usato al meno usato
+  (a parita' resta l'ordine del file dei tag). Ricerca e filtri: assets/js/sc-feed.js.
   Ogni voce porta nei data-* i testi su cui cerca lo script; senza JavaScript
   l'elenco resta comunque leggibile e cliccabile.
 {%- endcomment -%}
@@ -12,6 +15,23 @@
   {%- assign items = '' | split: '' -%}
 {%- endif -%}
 {%- assign label = include.label | default: 'items' -%}
+{%- assign taglist = include.taglist | default: site.data.tags -%}
+{%- assign datefmt = include.datefmt | default: '%-d %b %Y' -%}
+
+{%- comment -%}
+  Pulsanti-tag in ordine di utilizzo. Per ogni tag usato costruisco una chiave numerica
+  con 7 cifre fisse: 1.000.000 + (voci * 1000) + (999 - posizione nel file dei tag).
+  Ordinandole al contrario vengono prima i tag con piu' voci e, a parita', il primo del file.
+{%- endcomment -%}
+{%- assign tagkeys = '' | split: '' -%}
+{%- for t in taglist -%}
+  {%- assign used = items | where_exp: 'i', 'i.tags contains t.id' -%}
+  {%- if used.size > 0 -%}
+    {%- assign key = used.size | times: 1000 | plus: 999 | minus: forloop.index0 | plus: 1000000 | append: '' | split: ',' -%}
+    {%- assign tagkeys = tagkeys | concat: key -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign tagkeys = tagkeys | sort | reverse -%}
 
 <div class="feed-wrap" data-feed data-label="{{ label }}">
   {%- if items.size > 0 %}
@@ -25,11 +45,13 @@
       </div>
 
       <div class="feed-tags" aria-label="Filter by tag">
-        {%- for t in site.data.tags -%}
-          {%- assign used = items | where_exp: 'i', 'i.tags contains t.id' -%}
-          {%- if used.size > 0 %}
-            <button type="button" class="tag-chip" data-tag="{{ t.id }}" aria-pressed="false">{{ t.label }} <span class="n">{{ used.size }}</span></button>
-          {%- endif -%}
+        {%- for k in tagkeys -%}
+          {%- assign num = k | minus: 1000000 -%}
+          {%- assign rest = num | modulo: 1000 -%}
+          {%- assign pos = 999 | minus: rest -%}
+          {%- assign n = num | divided_by: 1000 -%}
+          {%- assign t = taglist[pos] %}
+          <button type="button" class="tag-chip" data-tag="{{ t.id }}" aria-pressed="false">{{ t.label }} <span class="n">{{ n }}</span></button>
         {%- endfor %}
       </div>
       <p class="feed-status" aria-live="polite"></p>
@@ -39,20 +61,24 @@
       {%- for it in items -%}
         {%- capture tagtext -%}
           {%- for tid in it.tags -%}
-            {%- assign t = site.data.tags | where: 'id', tid | first -%}
+            {%- assign t = taglist | where: 'id', tid | first -%}
             {{ tid }} {{ t.label }} {{ t.aliases | join: ' ' }}{% unless forloop.last %}{{ ' ' }}{% endunless %}
           {%- endfor -%}
         {%- endcapture %}
         <li class="feed-item" data-date="{{ it.date | date: '%Y-%m-%d' }}" data-tags="{{ it.tags | join: ' ' }}" data-tagtext="{{ tagtext | strip | escape }}">
-          <span class="feed-date"><time datetime="{{ it.date | date: '%Y-%m-%d' }}">{{ it.date | date: '%-d %b %Y' | downcase }}</time>{% if it.where %} · {{ it.where }}{% endif %}</span>
+          <span class="feed-date"><time datetime="{{ it.date | date: '%Y-%m-%d' }}">{{ it.date | date: datefmt | downcase }}</time>{% if it.where %} · {{ it.where }}{% endif %}</span>
+          {%- if it.url %}
           <h2 class="feed-title"><a href="{{ it.url }}" target="_blank" rel="noopener">{{ it.title }}</a></h2>
+          {%- else %}
+          <h2 class="feed-title"><a>{{ it.title }}</a></h2>
+          {%- endif %}
           {%- if it.summary %}
             <p class="feed-summary">{{ it.summary }}</p>
           {%- endif %}
           {%- if it.tags and it.tags.size > 0 %}
             <div class="feed-tags">
               {%- for tid in it.tags -%}
-                {%- assign t = site.data.tags | where: 'id', tid | first %}
+                {%- assign t = taglist | where: 'id', tid | first %}
                 <button type="button" class="tag-chip" data-tag="{{ tid }}" aria-pressed="false">{{ t.label | default: tid }}</button>
               {%- endfor %}
             </div>

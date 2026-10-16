@@ -11,11 +11,11 @@ description: "Stefano Coelati Rama - programmer and philosopher. Logic, epistemo
 footer_text: ""
 keywords: philosophy, epistemology, information theory, formal logic, category theory, philosophy of mind
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: 🌿 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+icon: favicon.png # favicon: file in assets/img/ (sostituiscilo con un PNG quadrato, almeno 192x192, tenendo lo stesso nome)
 apple_touch_icon: # image name in /assets/img/ (or a rooted path / absolute URL) used for iOS home-screen bookmarks; needs a real 180x180 PNG, since Safari ignores the emoji favicon above. Left empty, iOS falls back to a screenshot of the page.
 
-url: https://crstefano.github.io # the base hostname & protocol for your site
-baseurl: "" # vuoto: sito utente su https://crstefano.github.io (repository CRStefano.github.io)
+url: https://stefanocoelatirama.com # il dominio del sito (deve coincidere con il file CNAME nella radice)
+baseurl: "" # vuoto: il sito sta alla radice del dominio
 last_updated: false # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 back_to_top: false

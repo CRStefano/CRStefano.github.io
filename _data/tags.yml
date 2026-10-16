@@ -61,3 +61,21 @@
 - id: narrative
   label: Narrative
   aliases: [narrativa, fiction, racconto, racconti, story, storia, novel, romanzo]
+
+# --- tag che usi nei post del Blog (aggiunti perche' mancavano dall'elenco) ---
+
+- id: essay
+  label: Essay
+  aliases: [saggio, saggi, articolo, longform, riflessione]
+
+- id: english
+  label: English
+  aliases: [inglese, in english, lingua inglese]
+
+- id: italian
+  label: Italian
+  aliases: [italiano, italiana, in italiano, lingua italiana]
+
+- id: fiction
+  label: Fiction
+  aliases: [narrativa, racconto, racconti, short story, romanzo, letteratura, invenzione]
