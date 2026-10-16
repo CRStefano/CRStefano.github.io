@@ -5,19 +5,19 @@ i file che lo **sovrascrivono**). Indirizzo: https://crstefano.github.io
 
 ## Dove si modifica cosa
 
-| Cosa                             | File                                                                                                                                      |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Testo della Home (bio)           | `_pages/about.md`                                                                                                                         |
-| Lavori (Projects, Work & Talks)  | `_data/works.yml` — un blocco per lavoro; senza `url` la voce non ha "HERE"                                                               |
-| Education & Certification        | `_data/education.yml`                                                                                                                     |
-| Mail, CV, social                 | `_data/contact.yml`                                                                                                                       |
-| Articoli (pagina Articles)       | `_data/articles.yml` — titolo, data, link che scegli tu, riassunto, tag; l'ordine per data è automatico                                    |
-| Blog (post del Substack)         | `_data/blog.yml` — stessa struttura, i link vanno ai post su Substack                                                                      |
-| Tag e loro sinonimi per la ricerca | `_data/tags.yml` — elenco unico dei tag del sito (es. "geopolitica" trova "Geopolitics")                                                 |
-| Saggio in fondo a Contact        | `_data/essay.yml`                                                                                                                         |
-| Colori, font, spaziature, sfondo | `_sass/_stefano.scss` (variabili in cima; sezione 7 = posizioni del desktop copiate da Canva)                                              |
-| Foto profilo                     | `assets/img/stefano.jpg` (ora è un segnaposto ritagliato da uno screenshot: sostituiscila con la versione HD, anche più grande, quadrata) |
-| Nome, dominio, font caricati     | `_config.yml`                                                                                                                             |
+| Cosa                               | File                                                                                                                                      |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Testo della Home (bio)             | `_pages/about.md`                                                                                                                         |
+| Lavori (Projects, Work & Talks)    | `_data/works.yml` — un blocco per lavoro; senza `url` la voce non ha "HERE"                                                               |
+| Education & Certification          | `_data/education.yml`                                                                                                                     |
+| Mail, CV, social                   | `_data/contact.yml`                                                                                                                       |
+| Articoli (pagina Articles)         | `_data/articles.yml` — titolo, data, link che scegli tu, riassunto, tag; l'ordine per data è automatico                                   |
+| Blog (post del Substack)           | `_data/blog.yml` — stessa struttura, i link vanno ai post su Substack                                                                     |
+| Tag e loro sinonimi per la ricerca | `_data/tags.yml` — elenco unico dei tag del sito (es. "geopolitica" trova "Geopolitics")                                                  |
+| Saggio in fondo a Contact          | `_data/essay.yml`                                                                                                                         |
+| Colori, font, spaziature, sfondo   | `_sass/_stefano.scss` (variabili in cima; sezione 7 = posizioni del desktop copiate da Canva)                                             |
+| Foto profilo                       | `assets/img/stefano.jpg` (ora è un segnaposto ritagliato da uno screenshot: sostituiscila con la versione HD, anche più grande, quadrata) |
+| Nome, dominio, font caricati       | `_config.yml`                                                                                                                             |
 
 ## File nuovi o sostituiti
 
