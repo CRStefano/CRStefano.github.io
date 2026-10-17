@@ -48,6 +48,22 @@ lo dice a GitHub; prima del cambio il sito stava su https://crstefano.github.io)
    `stefanocoelatirama.com`, poi _Enforce HTTPS_.
 4. Segui la build nella scheda _Actions_ → "Deploy site" (qualche minuto la prima volta).
 
+## SEO (come ti trova Google)
+
+- **Titolo e descrizione di ogni pagina**: nel front matter di `_pages/about.md` (Home), `works.md`, `blog.md`,
+  `contact.md` ci sono `seo_title` (titolo che Google mostra e titolo della scheda del browser) e `description`
+  (la frase sotto il titolo nei risultati). Per una nuova pagina aggiungi le stesse due righe. Descrizione: 120-160 caratteri.
+- **Anteprima dei link** (WhatsApp, Telegram, LinkedIn, X...): `assets/img/og-image.png`, 1200x630. Per cambiarla,
+  sostituiscila tenendo lo stesso nome. Attivata da `serve_og_meta: true` e `og_image` in `_config.yml`.
+- **Dati strutturati (JSON-LD, invisibili)**:
+  - Home: scheda "Persona" con nome, ruolo, argomenti e profili ufficiali, letti da `_data/seo.yml` (li modifichi lì).
+  - Works e Blog: ogni lavoro/post e' descritto in automatico a partire da `_data/works.yml` e `_data/blog.yml`
+    (titolo, link, data, descrizione = `summary`, argomenti = i tag, autore). Nessun campo in piu' da compilare.
+    Per Works si pubblica solo l'anno (i giorni sono inventati); i tipi vengono da `where`: Paper, Thesis, altro.
+- `serve_schema_org` resta **false** di proposito: il blocco del tema usa `_data/socials.yml`, che contiene ancora
+  dati di esempio del template; i dati veri sono in `_data/seo.yml`.
+- `_includes/metadata.liquid` e' una copia del file del tema con due ritocchi (`seo_title` e anteprima grande su X).
+
 ## Cose da sapere
 
 - Il sito è stato preparato **senza poter eseguire Jekyll** (l'ambiente di lavoro non raggiungeva rubygems.org).

@@ -53,3 +53,11 @@
 - id: tools
   label: Tools & typesetting
   aliases: [strumenti, typst, typesetting, composizione, latex, programming, programmazione, manual, manuale]
+
+- id: existentialism
+  label: Existentialism
+  aliases: [existentialism, esistenzialismo, absurd, assurdo, absurdism, assurdismo, camus, meaning of life, senso della vita]
+
+- id: death
+  label: Death
+  aliases: [death, morte, mortality, mortalita, fear of death, paura della morte, finitude, finitezza]

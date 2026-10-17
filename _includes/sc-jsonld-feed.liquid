@@ -1,0 +1,75 @@
+{%- comment -%}
+  Dati strutturati (JSON-LD) per le pagine Works e Blog: dicono a Google che la pagina e'
+  un elenco e descrivono OGNI voce (titolo, link, data, descrizione, argomenti, autore).
+  Non si vede sulla pagina. Si genera da solo dai file in _data: non c'e' niente da compilare.
+    include.items    voci (_data/works.yml o _data/blog.yml)
+    include.taglist  tag ammessi (per trasformare gli id in etichette leggibili)
+    include.datefmt  se e' '%Y' la data pubblicata e' solo l'anno (cosi' non pubblico i giorni inventati)
+  Tipo di ogni voce: page.schema_item se c'e' (Blog: BlogPosting); altrimenti dal campo `where`:
+  Paper -> ScholarlyArticle, "... thesis" -> Thesis, tutto il resto -> CreativeWork.
+{%- endcomment -%}
+{%- if include.items -%}
+  {%- assign jl_items = include.items | sort: 'date' | reverse -%}
+  {%- assign jl_tags = include.taglist | default: site.data.tags -%}
+  {%- assign jl_fmt = '%Y-%m-%d' -%}
+  {%- if include.datefmt == '%Y' -%}{%- assign jl_fmt = '%Y' -%}{%- endif -%}
+  {%- capture jl_author -%}{{ site.first_name }} {{ site.last_name }}{%- endcapture -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": {{ page.heading | default: page.title | jsonify }},
+  "url": {{ page.url | absolute_url | jsonify }},
+  "description": {{ page.description | default: site.description | jsonify }},
+  "inLanguage": {{ site.lang | jsonify }},
+  "isPartOf": { "@type": "WebSite", "name": {{ jl_author | jsonify }}, "url": {{ site.url | jsonify }} },
+  "author": { "@type": "Person", "name": {{ jl_author | jsonify }}, "url": {{ site.url | jsonify }} },
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": {{ jl_items.size }},
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "itemListElement": [
+    {%- for it in jl_items -%}
+      {%- if page.schema_item -%}
+        {%- assign jl_type = page.schema_item -%}
+      {%- elsif it.where == 'Paper' -%}
+        {%- assign jl_type = 'ScholarlyArticle' -%}
+      {%- elsif it.where contains 'thesis' -%}
+        {%- assign jl_type = 'Thesis' -%}
+      {%- else -%}
+        {%- assign jl_type = 'CreativeWork' -%}
+      {%- endif -%}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.index }},
+        "item": {
+          "@type": {{ jl_type | jsonify }},
+          "name": {{ it.title | jsonify }},
+          "headline": {{ it.title | jsonify }},
+          "datePublished": {{ it.date | date: jl_fmt | jsonify }},
+          {%- if it.url -%}
+          "url": {{ it.url | jsonify }},
+          {%- endif -%}
+          {%- if it.summary -%}
+          "description": {{ it.summary | jsonify }},
+          {%- endif -%}
+          {%- if it.where -%}
+          "genre": {{ it.where | jsonify }},
+          {%- endif -%}
+          {%- if it.tags and it.tags.size > 0 -%}
+          "keywords": [
+            {%- for tid in it.tags -%}
+              {%- assign jl_t = jl_tags | where: 'id', tid | first -%}
+              {{ jl_t.label | default: tid | jsonify }}{% unless forloop.last %}, {% endunless %}
+            {%- endfor -%}
+          ],
+          {%- endif -%}
+          "author": { "@type": "Person", "name": {{ jl_author | jsonify }}, "url": {{ site.url | jsonify }} }
+        }
+      }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+    ]
+  }
+}
+</script>
+{%- endif -%}

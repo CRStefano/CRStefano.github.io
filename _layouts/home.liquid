@@ -43,3 +43,40 @@ layout: default
     </div>
   </section>
 </div>
+{%- comment -%}
+  Dati strutturati per Google (non si vedono): chi sei, di cosa ti occupi, dove sono i tuoi profili.
+  I valori sono in _data/seo.yml. Il nome viene da first_name / last_name di _config.yml.
+{%- endcomment -%}
+{%- capture seo_author -%}{{ site.first_name }} {{ site.last_name }}{%- endcapture -%}
+{%- assign seo = site.data.seo -%}
+{%- assign seo_home = '/' | absolute_url -%}
+{%- assign seo_img = site.og_image | default: '/assets/img/og-image.png' | absolute_url -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": {{ seo_home | append: '#person' | jsonify }},
+      "name": {{ seo_author | jsonify }},
+      "givenName": {{ site.first_name | jsonify }},
+      "familyName": {{ site.last_name | jsonify }},
+      "url": {{ seo_home | jsonify }},
+      "image": {{ seo_img | jsonify }},
+      "description": {{ page.description | default: site.description | jsonify }}
+      {%- if seo.job_title -%}, "jobTitle": {{ seo.job_title | jsonify }}{%- endif -%}
+      {%- if seo.alumni_of -%}, "alumniOf": { "@type": "CollegeOrUniversity", "name": {{ seo.alumni_of.name | jsonify }}, "url": {{ seo.alumni_of.url | jsonify }} }{%- endif -%}
+      {%- if seo.knows_about -%}, "knowsAbout": {{ seo.knows_about | jsonify }}{%- endif -%}
+      {%- if seo.same_as -%}, "sameAs": {{ seo.same_as | jsonify }}{%- endif -%}
+    },
+    {
+      "@type": "WebSite",
+      "@id": {{ seo_home | append: '#website' | jsonify }},
+      "url": {{ seo_home | jsonify }},
+      "name": {{ seo_author | jsonify }},
+      "inLanguage": {{ site.lang | jsonify }},
+      "publisher": { "@id": {{ seo_home | append: '#person' | jsonify }} }
+    }
+  ]
+}
+</script>

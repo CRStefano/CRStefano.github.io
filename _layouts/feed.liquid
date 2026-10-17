@@ -8,6 +8,8 @@ layout: default
     label:  "articles" | "posts"  parola usata nei messaggi ("No articles yet")
     tags_data: (facoltativo)      file dei tag in _data, senza .yml (default: tags; Works usa work_tags)
     datefmt:   (facoltativo)      formato della data, es. '%Y' per mostrare solo l'anno
+    description, seo_title (facoltativi)  testo per Google e titolo della scheda (vedi LEGGIMI-MODIFICHE.md)
+    schema_item: (facoltativo)    tipo schema.org delle voci (Blog: BlogPosting); senza, dal campo `where`
 {%- endcomment -%}
 <div class="feed-page">
   <h1 class="page-title">{{ page.heading | default: page.title }}</h1>
@@ -16,6 +18,7 @@ layout: default
   {%- assign feed_tags = site.data[tags_key] -%}
   {%- assign feed_datefmt = page.datefmt | default: '%-d %b %Y' -%}
   {% include sc-feed.liquid items=feed_items label=page.label taglist=feed_tags datefmt=feed_datefmt %}
+  {% include sc-jsonld-feed.liquid items=feed_items taglist=feed_tags datefmt=feed_datefmt %}
   {{ content }}
 </div>
 <script src="{{ '/assets/js/sc-feed.js' | relative_url | bust_file_cache }}" defer></script>

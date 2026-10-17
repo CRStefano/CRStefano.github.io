@@ -1,0 +1,25 @@
+# =============================================================================
+# SEO: dati che il sito dice ai motori di ricerca su di te (Home -> "Person").
+# Modificali quando cambia qualcosa; niente di cio' che scrivi qui e' visibile
+# sulla pagina, serve solo a Google e agli altri motori.
+# =============================================================================
+job_title: "Programmer and philosopher"
+alumni_of:
+  name: "University of Turin"
+  url: "https://en.unito.it/"
+# Argomenti di cui ti occupi (aiutano a capire di cosa parla il sito)
+knows_about:
+  - Epistemology
+  - Formal logic
+  - Information theory
+  - Philosophy of mind
+  - Formal ontology
+  - Category theory
+# I tuoi profili ufficiali sul web: Google li usa per capire che sono tutti "te".
+# Instagram e Facebook non ci sono di proposito: aggiungili se vuoi.
+same_as:
+  - "https://stefanocoelatirama.substack.com/"
+  - "https://philpeople.org/profiles/stefano-coelati-rama"
+  - "https://www.linkedin.com/in/stefanocoelatirama/"
+  - "https://github.com/CRStefano"
+  - "https://x.com/StefanoCoelati"

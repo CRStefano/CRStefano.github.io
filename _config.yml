@@ -105,9 +105,9 @@ max_width: 1200px
 # -----------------------------------------------------------------------------
 # Display links to the page with a preview object on social media.
 # see https://schema.org/docs/faq.html for more information
-serve_og_meta: false # Include Open Graph meta tags in the HTML head
+serve_og_meta: true # anteprima dei link su social, WhatsApp, Telegram... (usa description e og_image)
 serve_schema_org: false # Include Schema.org in the HTML head
-og_image: # The site-wide (default for all links) Open Graph preview image
+og_image: /assets/img/og-image.png # immagine di anteprima dei link (1200x630); sostituiscila tenendo lo stesso nome
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
