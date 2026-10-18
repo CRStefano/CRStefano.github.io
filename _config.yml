@@ -148,9 +148,9 @@ related_blog_posts:
 # Follow instructions on https://giscus.app/ to setup for your repo to fill out the information below.
 giscus:
   repo: CRStefano/CRStefano.github.io # repository dove vengono salvati i commenti (GitHub Discussions)
-  repo_id: # DA COMPILARE: lo trovi su https://giscus.app (vedi LEGGIMI-MODIFICHE.md, sezione Commenti)
+  repo_id: R_kgDOTBPEIg # DA COMPILARE: lo trovi su https://giscus.app (vedi LEGGIMI-MODIFICHE.md, sezione Commenti)
   category: Announcements # categoria delle Discussions (vedi LEGGIMI-MODIFICHE.md)
-  category_id: # DA COMPILARE: lo trovi su https://giscus.app
+  category_id: DIC_kwDOTBPEIs4DI4T0 # DA COMPILARE: lo trovi su https://giscus.app
   mapping: pathname # ogni pagina ha il suo thread, legato al suo indirizzo
   strict: 1 # use strict identification mode
   reactions_enabled: 1 # enable (1) or disable (0) emoji reactions
