@@ -5,7 +5,7 @@ summary: "Io e la mia stanza - Cagliari"
 tags: [fiction, italian]
 source: "https://frammentibc.substack.com/p/1-aprile"
 ---
-
+<br>
 La mia stanza è grande. Lo dico sempre così, anche se ho imparato che “grande” è una parola che cambia con la gola che la pronuncia. Per una formica è un continente, per un dio una tazzina da caffè. Io non sono nessuno dei due, ma la stanza insiste a essere grande lo stesso.
 
 Le pareti sono scure, non nere. Se vi appoggio l’orecchio sento un ronzio fine. Quando parlo le frasi ci ribalzano sopra e tornano indietro cambiate. Ho provato a contare le sfumature del colore: una sera sono arrivato a dodici, poi mi sono perso tra la tredicesima e la quattordicesima, che litigano fra loro.
