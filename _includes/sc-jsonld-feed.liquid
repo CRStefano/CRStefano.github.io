@@ -1,8 +1,8 @@
 {%- comment -%}
   Dati strutturati (JSON-LD) per le pagine Works e Blog: dicono a Google che la pagina e'
   un elenco e descrivono OGNI voce (titolo, link, data, descrizione, argomenti, autore).
-  Non si vede sulla pagina. Si genera da solo dai file in _data: non c'e' niente da compilare.
-    include.items    voci (_data/works.yml o _data/blog.yml)
+  Non si vede sulla pagina. Si genera da solo dai file di _works/ e _blog/: non c'e' niente da compilare.
+    include.items    voci (i file di _works/ o _blog/)
     include.taglist  tag ammessi (per trasformare gli id in etichette leggibili)
     include.datefmt  se e' '%Y' la data pubblicata e' solo l'anno (cosi' non pubblico i giorni inventati)
   Tipo di ogni voce: page.schema_item se c'e' (Blog: BlogPosting); altrimenti dal campo `where`:
@@ -47,8 +47,9 @@
           "name": {{ it.title | jsonify }},
           "headline": {{ it.title | jsonify }},
           "datePublished": {{ it.date | date: jl_fmt | jsonify }},
-          {%- if it.url -%}
-          "url": {{ it.url | jsonify }},
+          "url": {{ it.url | absolute_url | jsonify }},
+          {%- if it.source -%}
+          "sameAs": {{ it.source | jsonify }},
           {%- endif -%}
           {%- if it.summary -%}
           "description": {{ it.summary | jsonify }},

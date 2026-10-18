@@ -1,11 +1,12 @@
 {%- comment -%}
   Elenco a scorrimento verticale per Articles e Blog (stessa struttura per entrambe).
-    include.items  elenco di voci (_data/articles.yml o _data/blog.yml)
+    include.items  elenco di voci (i file di _works/ o _blog/)
     include.label  nome al plurale per i messaggi ("articles", "posts")
     include.taglist elenco dei tag ammessi (_data/tags.yml oppure _data/work_tags.yml)
     include.datefmt formato della data (es. '%-d %b %Y' oppure solo l'anno '%Y')
   Ordine delle voci: dal piu' recente. Ordine dei pulsanti-tag: dal piu' usato al meno usato
   (a parita' resta l'ordine del file dei tag). Ricerca e filtri: assets/js/sc-feed.js.
+  Le voci sono i file di _works/ o _blog/: il titolo porta alla pagina del lavoro/post (layout entry.liquid).
   Ogni voce porta nei data-* i testi su cui cerca lo script; senza JavaScript
   l'elenco resta comunque leggibile e cliccabile.
 {%- endcomment -%}
@@ -67,11 +68,7 @@
         {%- endcapture %}
         <li class="feed-item" data-date="{{ it.date | date: '%Y-%m-%d' }}" data-tags="{{ it.tags | join: ' ' }}" data-tagtext="{{ tagtext | strip | escape }}">
           <span class="feed-date"><time datetime="{{ it.date | date: '%Y-%m-%d' }}">{{ it.date | date: datefmt | downcase }}</time>{% if it.where %} · {{ it.where }}{% endif %}</span>
-          {%- if it.url %}
-          <h2 class="feed-title"><a href="{{ it.url }}" target="_blank" rel="noopener">{{ it.title }}</a></h2>
-          {%- else %}
-          <h2 class="feed-title"><a>{{ it.title }}</a></h2>
-          {%- endif %}
+          <h2 class="feed-title"><a href="{{ it.url | relative_url }}">{{ it.title }}</a></h2>
           {%- if it.summary %}
             <p class="feed-summary">{{ it.summary }}</p>
           {%- endif %}

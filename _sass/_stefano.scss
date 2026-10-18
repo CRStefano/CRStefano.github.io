@@ -25,6 +25,7 @@
  *   6. Articoli & Blog: elenco, ricerca, tag
  *   7. Desktop: layout identico a Canva
  *   8. Telefoni e tablet stretti: menu centrale a "pillole" e Home centrata
+ *   9. Pagina di un singolo lavoro / post (stile Substack) e stampa
  ******************************************************************************/
 
 // unita' Canva -> CSS
@@ -1300,5 +1301,455 @@ mark.hl {
 
   .home .intro p + p {
     margin-top: 0.85em;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * 9. PAGINA DI UN SINGOLO LAVORO / POST  (layout _layouts/entry.liquid)
+ *    Colonna di lettura centrata, in stile Substack: titolo grande, sottotitolo,
+ *    riga autore + icona verso l'originale, testo, tag, commenti.
+ * ------------------------------------------------------------------------ */
+.entry {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 22px 0 8px;
+  /* testo lungo: crenatura e legature normali (il desktop le spegne per Canva) */
+  font-kerning: normal;
+  font-feature-settings: normal;
+  text-rendering: optimizeLegibility;
+}
+
+.entry-back {
+  margin: 0 0 20px;
+  font-family: var(--sc-display);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.entry-back a {
+  color: var(--sc-label);
+  text-decoration: none;
+}
+
+.entry-back a:hover {
+  color: var(--sc-link);
+}
+
+.entry-title {
+  margin: 0;
+  font-family: var(--sc-serif);
+  font-weight: 700;
+  font-size: clamp(30px, 8vw, 44px);
+  line-height: 1.13;
+  color: var(--sc-text);
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+.entry-sub {
+  margin: 12px 0 0;
+  font-family: var(--sc-serif);
+  font-size: clamp(18px, 4.6vw, 21px);
+  line-height: 1.42;
+  color: var(--sc-muted);
+  overflow-wrap: break-word;
+}
+
+.entry-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 26px;
+  padding: 14px 0;
+  border-top: 1px solid var(--sc-line);
+  border-bottom: 1px solid var(--sc-line);
+}
+
+.entry-by {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.entry-avatar {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 2px var(--sc-chip);
+}
+
+.entry-by-txt {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.3;
+}
+
+.entry-author {
+  font-weight: 700;
+  font-size: 15.5px;
+}
+
+.entry-date {
+  color: var(--sc-muted);
+  font-size: 13.5px;
+}
+
+.entry-actions {
+  display: flex;
+  flex: none;
+  gap: 10px;
+}
+
+.entry-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1.5px solid var(--sc-link);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--sc-nav);
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.entry-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.entry-btn:hover,
+.entry-btn:focus-visible {
+  background: var(--sc-link);
+  color: #282424;
+}
+
+.entry-body {
+  margin-top: 34px;
+  font-family: var(--sc-serif);
+  font-size: clamp(17px, 4.5vw, 19px);
+  line-height: 1.72;
+  overflow-wrap: break-word;
+}
+
+.entry-body > :first-child {
+  margin-top: 0;
+}
+
+.entry-body p {
+  margin: 0 0 1.15em;
+}
+
+.entry-body h2,
+.entry-body h3,
+.entry-body h4 {
+  margin: 1.9em 0 0.55em;
+  font-family: var(--sc-serif);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--sc-text);
+}
+
+.entry-body h2 {
+  font-size: 1.55em;
+}
+
+.entry-body h3 {
+  font-size: 1.28em;
+}
+
+.entry-body h4 {
+  font-size: 1.1em;
+}
+
+.entry-body a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--sc-link);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.entry-body a:hover {
+  text-decoration-color: currentColor;
+}
+
+.entry-body blockquote {
+  margin: 1.5em 0;
+  padding: 0.1em 0 0.1em 1.1em;
+  border-left: 3px solid var(--sc-link);
+  font-style: italic;
+}
+
+.entry-body blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.entry-body ul,
+.entry-body ol {
+  margin: 0 0 1.15em;
+  padding-left: 1.4em;
+}
+
+.entry-body li {
+  margin: 0.3em 0;
+}
+
+.entry-body hr {
+  height: auto;
+  margin: 2.2em 0;
+  border: 0;
+  text-align: center;
+}
+
+.entry-body hr::before {
+  content: "* * *";
+  color: var(--sc-muted);
+  letter-spacing: 0.6em;
+}
+
+.entry-body img,
+.entry-body video,
+.entry-body iframe {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.entry-body figure {
+  margin: 1.6em 0;
+}
+
+.entry-body figcaption {
+  margin-top: 0.5em;
+  color: var(--sc-muted);
+  font-size: 0.85em;
+  text-align: center;
+}
+
+.entry-body code {
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  background: var(--sc-chip);
+  color: var(--sc-text);
+  font-size: 0.88em;
+}
+
+.entry-body pre {
+  margin: 0 0 1.15em;
+  padding: 14px 16px;
+  overflow-x: auto;
+  border-radius: 8px;
+  background: var(--global-code-bg-color);
+  font-size: 0.85em;
+  line-height: 1.5;
+}
+
+.entry-body pre code {
+  padding: 0;
+  background: none;
+}
+
+.entry-body table {
+  width: 100%;
+  margin: 0 0 1.15em;
+  border-collapse: collapse;
+  font-size: 0.92em;
+}
+
+.entry-body th,
+.entry-body td {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--sc-line);
+  text-align: left;
+}
+
+.entry-body .footnotes {
+  margin-top: 2.4em;
+  padding-top: 1em;
+  border-top: 1px solid var(--sc-line);
+  font-size: 0.85em;
+}
+
+.entry-stub {
+  margin: 34px 0 0;
+  padding: 16px 18px;
+  border: 1px dashed var(--sc-line);
+  border-radius: 10px;
+  color: var(--sc-muted);
+  font-family: var(--sc-serif);
+  line-height: 1.55;
+}
+
+.entry-stub a {
+  color: var(--sc-text);
+  text-decoration: underline;
+  text-decoration-color: var(--sc-link);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.entry-tags {
+  margin-top: 38px;
+}
+
+.entry-tags .tag-chip {
+  text-decoration: none;
+}
+
+.entry-subscribe {
+  margin: 24px 0 0;
+  color: var(--sc-muted);
+  font-size: 15px;
+}
+
+.entry-subscribe a {
+  color: var(--sc-text);
+  text-decoration: underline;
+  text-decoration-color: var(--sc-link);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.entry-comments {
+  margin-top: 48px;
+  padding-top: 26px;
+  border-top: 1px solid var(--sc-line);
+}
+
+.entry-comments h2 {
+  margin: 0 0 6px;
+  font-family: var(--sc-display);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sc-text);
+}
+
+.entry-comments-note {
+  margin: 0 0 18px;
+  color: var(--sc-muted);
+  font-size: 13.5px;
+}
+
+/* desktop: stessa colonna e stesso margine sinistro dell'elenco di Blog e Works (u(90.29), larghezza u(760)),
+   caratteri piu' grandi; mai sotto una misura comoda da leggere anche con la finestra stretta */
+@media (min-width: 861px) {
+  .entry {
+    width: u(760);
+    max-width: none;
+    margin: 0 0 0 u(90.29);
+    padding: u(118) 0 u(70);
+  }
+
+  .entry-back {
+    margin-bottom: u(22);
+    font-size: max(14px, #{u(13.4)});
+  }
+
+  .entry-title {
+    font-size: max(34px, #{u(44)});
+  }
+
+  .entry-sub {
+    margin-top: u(14);
+    font-size: max(19px, #{u(19.5)});
+  }
+
+  .entry-meta {
+    margin-top: u(30);
+    padding: u(14) 0;
+  }
+
+  .entry-author {
+    font-size: max(15.5px, #{u(14)});
+  }
+
+  .entry-date {
+    font-size: max(13.5px, #{u(12.4)});
+  }
+
+  .entry-body {
+    margin-top: u(38);
+    font-size: max(17px, #{u(18.4)});
+    line-height: 1.72;
+  }
+
+  .entry-stub {
+    font-size: max(17px, #{u(18.4)});
+  }
+
+  .entry-tags {
+    margin-top: u(42);
+  }
+
+  .entry-subscribe {
+    font-size: max(15px, #{u(14)});
+  }
+
+  .entry-comments {
+    margin-top: u(56);
+  }
+}
+
+/* stampa / "salva come PDF": solo titolo e testo, a colori normali */
+@media print {
+  html,
+  html[data-theme="dark"] {
+    background: #fff !important;
+  }
+
+  .bg-base,
+  .deco,
+  .sc-header,
+  #light-toggle,
+  .entry-back,
+  .entry-actions,
+  .entry-tags,
+  .entry-subscribe,
+  .entry-comments {
+    display: none !important;
+  }
+
+  body,
+  .sc-main,
+  .entry,
+  .entry * {
+    color: #000 !important;
+  }
+
+  .sc-main {
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .entry {
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .entry-meta {
+    border-color: #999 !important;
+  }
+
+  .entry-body a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.78em;
+    word-break: break-all;
   }
 }

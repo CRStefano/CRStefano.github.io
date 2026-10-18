@@ -4,7 +4,7 @@ layout: default
 {%- comment -%}
   Pagine "Articles" e "Blog": titolo + elenco (vedi _includes/sc-feed.liquid).
   Nel front matter della pagina:
-    feed:   articles | blog       quale file di _data usare
+    feed:   works | blog          quale cartella usare (_works/ o _blog/: un file .md per ogni voce)
     label:  "articles" | "posts"  parola usata nei messaggi ("No articles yet")
     tags_data: (facoltativo)      file dei tag in _data, senza .yml (default: tags; Works usa work_tags)
     datefmt:   (facoltativo)      formato della data, es. '%Y' per mostrare solo l'anno
@@ -13,7 +13,7 @@ layout: default
 {%- endcomment -%}
 <div class="feed-page">
   <h1 class="page-title">{{ page.heading | default: page.title }}</h1>
-  {%- assign feed_items = site.data[page.feed] -%}
+  {%- assign feed_items = site[page.feed] -%}
   {%- assign tags_key = page.tags_data | default: 'tags' -%}
   {%- assign feed_tags = site.data[tags_key] -%}
   {%- assign feed_datefmt = page.datefmt | default: '%-d %b %Y' -%}

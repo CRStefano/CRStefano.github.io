@@ -110,9 +110,10 @@ let setGiscusTheme = (theme) => {
     iframe.contentWindow.postMessage({ giscus: message }, "https://giscus.app");
   }
 
+  // [Stefano] stessi temi di giscus: in _config.yml (giscus.light_theme / dark_theme)
   sendMessage({
     setConfig: {
-      theme: theme,
+      theme: theme === "dark" ? "transparent_dark" : "noborder_light",
     },
   });
 };

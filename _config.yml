@@ -147,16 +147,16 @@ related_blog_posts:
 # Giscus comments (RECOMMENDED)
 # Follow instructions on https://giscus.app/ to setup for your repo to fill out the information below.
 giscus:
-  repo: # <your-github-user-name>/<your-github-repo-name>
-  repo_id: # leave empty or specify your repo_id (see https://giscus.app/)
-  category: Comments # name of the category under which discussions will be created
-  category_id: # leave empty or specify your category_id (see https://giscus.app/)
-  mapping: title # identify discussions by post title
+  repo: CRStefano/CRStefano.github.io # repository dove vengono salvati i commenti (GitHub Discussions)
+  repo_id: # DA COMPILARE: lo trovi su https://giscus.app (vedi LEGGIMI-MODIFICHE.md, sezione Commenti)
+  category: Announcements # categoria delle Discussions (vedi LEGGIMI-MODIFICHE.md)
+  category_id: # DA COMPILARE: lo trovi su https://giscus.app
+  mapping: pathname # ogni pagina ha il suo thread, legato al suo indirizzo
   strict: 1 # use strict identification mode
   reactions_enabled: 1 # enable (1) or disable (0) emoji reactions
   input_position: bottom # whether to display input form below (bottom) or above (top) the comments
-  dark_theme: dark # name of the dark color scheme (preferred works well with al-folio dark mode)
-  light_theme: light # name of the light color scheme (preferred works well with al-folio light mode)
+  dark_theme: transparent_dark # senza sfondo, per stare bene sul tuo sfondo scuro
+  light_theme: noborder_light # senza bordo, per stare bene sul tuo sfondo crema
   emit_metadata: 0
   lang: en
 
@@ -194,6 +194,13 @@ newsletter:
 # -----------------------------------------------------------------------------
 
 collections:
+  # Una pagina per ogni lavoro (_works/) e per ogni post (_blog/): un file .md ciascuno
+  works:
+    output: true
+    permalink: /works/:name/
+  blog:
+    output: true
+    permalink: /blog/:name/
   books:
     output: true
   news:
@@ -208,6 +215,9 @@ collections:
 # -----------------------------------------------------------------------------
 # Jekyll settings
 # -----------------------------------------------------------------------------
+
+# pubblica anche le pagine con data di oggi o futura (evita che un nuovo lavoro "sparisca" per il fuso orario)
+future: true
 
 # Markdown and syntax highlight
 markdown: kramdown
@@ -321,6 +331,16 @@ defaults:
       path: "assets"
     values:
       sitemap: false
+  - scope:
+      path: ""
+      type: "works"
+    values:
+      layout: entry
+  - scope:
+      path: ""
+      type: "blog"
+    values:
+      layout: entry
 
 sass:
   style: compressed

@@ -1,0 +1,184 @@
+---
+layout: default
+---
+{%- comment -%}
+  Pagina di un singolo lavoro (cartella _works/) o di un singolo post (cartella _blog/).
+  Struttura: titolo e sottotitolo, autore + data + icona verso il testo originale, testo, tag, commenti.
+  Campi del file .md (front matter):
+    title    titolo                              date     AAAA-MM-GG (nei Works si vede solo l'anno)
+    summary  sottotitolo (anche per Google)      tags     etichette, come nell'elenco
+    where    (solo Works) Paper, Seminar, ...    source   link al testo originale (Substack, PhilPapers, ...)
+  L'icona verso l'originale non ha scritte: nome del sito (Substack, PhilPapers...) solo come
+  suggerimento al passaggio del mouse e per i lettori di schermo, ricavato dal link: se cambi il link, cambia da solo.
+  A destra c'e' anche il pulsante con la stampante (stampa la pagina / salva come PDF).
+  Il testo, in Markdown, va sotto il secondo "---". Se e' vuoto la pagina mostra solo il link all'originale.
+  Commenti: compaiono quando in _config.yml giscus.repo_id e giscus.category_id sono compilati.
+{%- endcomment -%}
+{%- if page.collection == 'works' -%}
+  {%- assign sec_name = 'Works' -%}
+  {%- assign sec_url = '/works/' -%}
+  {%- assign sec_tags = site.data.work_tags -%}
+  {%- assign sec_kind = 'work' -%}
+  {%- assign date_fmt = '%Y' -%}
+{%- else -%}
+  {%- assign sec_name = 'Blog' -%}
+  {%- assign sec_url = '/blog/' -%}
+  {%- assign sec_tags = site.data.tags -%}
+  {%- assign sec_kind = 'post' -%}
+  {%- assign date_fmt = '%-d %B %Y' -%}
+{%- endif -%}
+{%- capture author_name -%}{{ site.first_name }} {{ site.last_name }}{%- endcapture -%}
+
+{%- comment -%} nome del sito da cui viene il testo originale {%- endcomment -%}
+{%- assign src_label = nil -%}
+{%- if page.source -%}
+  {%- if page.source contains 'substack.com' -%}{%- assign src_label = 'Substack' -%}
+  {%- elsif page.source contains 'philpapers.org' -%}{%- assign src_label = 'PhilPapers' -%}
+  {%- elsif page.source contains 'github.com' -%}{%- assign src_label = 'GitHub' -%}
+  {%- elsif page.source contains 'youtube.com' or page.source contains 'youtu.be' -%}{%- assign src_label = 'YouTube' -%}
+  {%- elsif page.source contains 'zenodo.org' -%}{%- assign src_label = 'Zenodo' -%}
+  {%- elsif page.source contains 'arxiv.org' -%}{%- assign src_label = 'arXiv' -%}
+  {%- else -%}{%- assign src_label = 'Original' -%}
+  {%- endif -%}
+{%- endif -%}
+
+{%- if src_label == 'Original' -%}{%- assign src_hint = 'Read the original' -%}{%- else -%}{%- capture src_hint -%}Read the original on {{ src_label }}{%- endcapture -%}{%- endif -%}
+
+{%- assign body = content | strip -%}
+{%- assign words = content | number_of_words -%}
+{%- assign minutes = words | divided_by: 200.0 | ceil -%}
+
+<article class="entry">
+  <p class="entry-back"><a href="{{ sec_url | relative_url }}">&larr; {{ sec_name }}</a></p>
+
+  <header class="entry-head">
+    <h1 class="entry-title">{{ page.title }}</h1>
+    {%- if page.summary %}
+      <p class="entry-sub">{{ page.summary }}</p>
+    {%- endif %}
+
+    <div class="entry-meta">
+      <div class="entry-by">
+        <img class="entry-avatar" src="{{ '/assets/img/favicon.png' | relative_url }}" alt="" width="44" height="44" loading="lazy" decoding="async">
+        <div class="entry-by-txt">
+          <span class="entry-author">{{ author_name }}</span>
+          <span class="entry-date">
+            <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: date_fmt }}</time>
+            {%- if page.where %} &middot; {{ page.where }}{% endif -%}
+            {%- if words >= 150 %} &middot; {{ minutes }} min read{% endif -%}
+          </span>
+        </div>
+      </div>
+      <div class="entry-actions">
+        {%- if page.source %}
+          <a class="entry-btn entry-source" href="{{ page.source }}" target="_blank" rel="noopener" aria-label="{{ src_hint }} (opens in a new tab)" title="{{ src_hint }}">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v4.5A1.5 1.5 0 0 1 16.5 20h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10"/>
+            </svg>
+          </a>
+        {%- endif %}
+        <button class="entry-btn entry-print" type="button" onclick="window.print()" aria-label="Print this page or save it as PDF" title="Print this page or save it as PDF">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 8V3.5h10V8"/><path d="M7 17H5.5A1.5 1.5 0 0 1 4 15.5v-6A1.5 1.5 0 0 1 5.5 8h13A1.5 1.5 0 0 1 20 9.5v6a1.5 1.5 0 0 1-1.5 1.5H17"/><rect x="7" y="14" width="10" height="6.5" rx="1"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  {%- if body != '' %}
+    <div class="entry-body">
+      {{ content }}
+    </div>
+  {%- elsif page.source %}
+    <p class="entry-stub">The full text of this {{ sec_kind }} is not on this page yet. <a href="{{ page.source }}" target="_blank" rel="noopener">{% if src_label == 'Original' %}Read the original{% else %}Read it on {{ src_label }}{% endif %}</a>.</p>
+  {%- endif %}
+
+  {%- if page.tags and page.tags.size > 0 %}
+    <div class="entry-tags feed-tags" aria-label="Tags">
+      {%- for tid in page.tags -%}
+        {%- assign t = sec_tags | where: 'id', tid | first %}
+        <a class="tag-chip" href="{{ sec_url | relative_url }}?tags={{ tid }}">{{ t.label | default: tid }}</a>
+      {%- endfor %}
+    </div>
+  {%- endif %}
+
+  {%- if page.collection == 'blog' and page.source contains '/p/' %}
+    {%- assign sub_url = page.source | split: '/p/' | first %}
+    <p class="entry-subscribe">Enjoyed this? <a href="{{ sub_url }}" target="_blank" rel="noopener">Subscribe on Substack &rarr;</a></p>
+  {%- endif %}
+
+  {%- if site.giscus.repo and site.giscus.repo_id and site.giscus.category_id %}
+    <section class="entry-comments" id="comments" aria-labelledby="entry-comments-h">
+      <h2 id="entry-comments-h">Comments</h2>
+      <p class="entry-comments-note">Comments are handled by GitHub: to write one you need a free GitHub account.</p>
+      {% include giscus.liquid %}
+    </section>
+  {%- endif %}
+</article>
+
+{%- comment -%}
+  Dati strutturati per Google (invisibili): descrivono questo lavoro/post e il percorso Home > sezione > pagina.
+  Tipo: Blog -> BlogPosting; Works -> dal campo `where` (Paper = ScholarlyArticle, "... thesis" = Thesis, altro = CreativeWork).
+{%- endcomment -%}
+{%- if page.collection == 'blog' -%}
+  {%- assign jl_type = 'BlogPosting' -%}
+{%- elsif page.where == 'Paper' -%}
+  {%- assign jl_type = 'ScholarlyArticle' -%}
+{%- elsif page.where contains 'thesis' -%}
+  {%- assign jl_type = 'Thesis' -%}
+{%- else -%}
+  {%- assign jl_type = 'CreativeWork' -%}
+{%- endif -%}
+{%- if page.collection == 'works' -%}{%- assign jl_fmt = '%Y' -%}{%- else -%}{%- assign jl_fmt = '%Y-%m-%d' -%}{%- endif -%}
+{%- if page.tags contains 'italian' -%}{%- assign jl_lang = 'it' -%}{%- elsif page.tags contains 'english' -%}{%- assign jl_lang = 'en' -%}{%- else -%}{%- assign jl_lang = site.lang -%}{%- endif -%}
+{%- assign jl_url = page.url | absolute_url -%}
+{%- assign jl_img = site.og_image | default: '/assets/img/og-image.png' | absolute_url -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": {{ jl_type | jsonify }},
+      "@id": {{ jl_url | append: '#work' | jsonify }},
+      "name": {{ page.title | jsonify }},
+      "headline": {{ page.title | jsonify }},
+      "url": {{ jl_url | jsonify }},
+      "mainEntityOfPage": {{ jl_url | jsonify }},
+      "datePublished": {{ page.date | date: jl_fmt | jsonify }},
+      "inLanguage": {{ jl_lang | jsonify }},
+      "image": {{ jl_img | jsonify }},
+      {%- if page.summary -%}
+      "description": {{ page.summary | jsonify }},
+      {%- endif -%}
+      {%- if page.where -%}
+      "genre": {{ page.where | jsonify }},
+      {%- endif -%}
+      {%- if page.source -%}
+      "sameAs": {{ page.source | jsonify }},
+      {%- endif -%}
+      {%- if page.tags and page.tags.size > 0 -%}
+      "keywords": [
+        {%- for tid in page.tags -%}
+          {%- assign jl_t = sec_tags | where: 'id', tid | first -%}
+          {{ jl_t.label | default: tid | jsonify }}{% unless forloop.last %}, {% endunless %}
+        {%- endfor -%}
+      ],
+      {%- endif -%}
+      {%- if words >= 150 -%}
+      "wordCount": {{ words }},
+      {%- endif -%}
+      "isPartOf": { "@type": "CollectionPage", "name": {{ sec_name | jsonify }}, "url": {{ sec_url | absolute_url | jsonify }} },
+      "author": { "@type": "Person", "@id": {{ '/' | absolute_url | append: '#person' | jsonify }}, "name": {{ author_name | jsonify }}, "url": {{ site.url | jsonify }} }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ '/' | absolute_url | jsonify }} },
+        { "@type": "ListItem", "position": 2, "name": {{ sec_name | jsonify }}, "item": {{ sec_url | absolute_url | jsonify }} },
+        { "@type": "ListItem", "position": 3, "name": {{ page.title | jsonify }}, "item": {{ jl_url | jsonify }} }
+      ]
+    }
+  ]
+}
+</script>
