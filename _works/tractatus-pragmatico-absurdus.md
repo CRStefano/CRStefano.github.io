@@ -7,7 +7,6 @@ tags: [existentialism, ethics, death]
 source: "https://philpapers.org/rec/COETPK"
 ---
 <br>
-
 1. The world is everything that resists.
 2. A subject is a metastable structure that records the world.
 3. Knowing is a finite practice within a semiosis without internal bounds.
