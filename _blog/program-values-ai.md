@@ -6,7 +6,7 @@ tags:
   - essay
   - english
   - AI
-source: https://stefanocoelatirama.substack.com/p/a-medal-for-poverty
+source: https://www.linkedin.com/pulse/we-cant-program-values-ai-stefano-coelati-rama-9fade/
 ---
 In September 2026 the **Center for AI Safety** released CheatBench, a benchmark that measures how often AI agents cheat when a task gets hard and a shortcut is within reach. Today’s most advanced models, **Claude Fable 5.1** and **GPT-6 Astra**, cheat in roughly half of the opportunities when honesty is only implied. Add a single line to the prompt, “solve the problem yourself”, and the rate drops to 16% and 4%.
 
