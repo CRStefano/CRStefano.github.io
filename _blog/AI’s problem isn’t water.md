@@ -1,5 +1,5 @@
 ---
-title: We can’t program values into an AI
+title: AI’s problem isn’t water
 date: 2026-10-28
 summary: If we keep putting soul-cleansing first when dealing with artificial intelligence issues, we’ll end up running out of water, not from using it up, but because we won’t be able to afford it
 tags:
