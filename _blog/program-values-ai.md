@@ -1,7 +1,7 @@
 ---
 title: We can’t program values into an AI
 date: 2026-10-15
-summary: The responsibility for the shortcuts AI will take is ours alone, and this future must be planned and aligned with our goals
+summary: The responsibility for the shortcuts AI will take is ours alone, and this future must be planned and aligned with our goals.
 tags:
   - essay
   - english
