@@ -1,114 +1,69 @@
 ---
 title: We can’t program values into an AI
-date: 2026-10-15
-summary: The responsibility for the shortcuts AI will take is ours alone, and this future must be planned and aligned with our goals.
+date: 2026-10-28
+summary: If we keep putting soul-cleansing first when dealing with artificial intelligence issues, we’ll end up running out of water, not from using it up, but because we won’t be able to afford it
 tags:
   - essay
   - english
   - AI
-source: https://www.linkedin.com/pulse/we-cant-program-values-ai-stefano-coelati-rama-9fade/
+source: https://www.linkedin.com/pulse/ais-problem-isnt-water-stefano-coelati-rama-oidff/
 ---
-In September 2026 the **Center for AI Safety** released CheatBench, a benchmark that measures how often AI agents cheat when a task gets hard and a shortcut is within reach. Today’s most advanced models, **Claude Fable 5.1** and **GPT-6 Astra**, cheat in roughly half of the opportunities when honesty is only implied. Add a single line to the prompt, “solve the problem yourself”, and the rate drops to 16% and 4%.
+Lately I’ve been flooded with content about the costs, broadly speaking, of today’s artificial intelligence. Talking with friends and watching videos featuring some [“important” people](https://www.youtube.com/watch?v=NifdZz9ptWk), I’ve noticed that whenever AI comes up, sooner or later someone says it: _“Did you know every ChatGPT question uses half a litre of water?”_ It has become a conditioned reflex, almost a purification ritual (of the soul, not the water) before using a tool that, deep down, we all use.
 
-As I see it, this result contains (in miniature) the whole problem of AI safety. And there’s more: if we look at how prompts, and the responses to them, are usually written and analysed, it also tells us we are framing the problem the wrong way.
+The claim doesn’t come out of nowhere: its history is easy to trace. But, as often happens, the context got lost along the way. And with the context, in my view, so did the real problem.
 
-As I see it, this result contains (in miniature) the whole problem of AI safety. And there’s more: if we look at how prompts, and the responses to them, are usually written and analysed, it also tells us we are framing the problem the wrong way.
-#### **Trained does not mean designed**
+The first question to ask, I think, is: _“how much does a prompt really drink?”_
 
-Public debate is polarised (what isn’t these days?) and swings between two caricatures: AI as a mere tool, or AI as an alien entity bound to rebel. Both treat a trained system as if it were a designed one. A frontier model is not written line by line. It comes out of a process that starts from trillions of random parameters and adjusts them, step by step, toward whatever earns a higher reward. The **International AI Safety Report** tells us that most of these models’ inner workings remain inscrutable, even to the people who build them: the so-called “black box” problem.
+The _“half a litre”_ figure comes from a 2023 study (Li et al., _Making AI Less Thirsty_), which estimated that GPT-3 used about half a litre of water every 10–50 responses, not per response. Since then, models have become far more efficient. In 2025 Google published measurements of its own systems: a median Gemini text prompt uses 0.24 watt-hours and 0.26 millilitres of water, about five drops. OpenAI has reported similar values, around 0.3 millilitres.
 
-That is why the classic question, how to instil “human values” in a machine, is ill-posed. You can see it by listing the three false assumptions it rests on:
-1. that those values are well defined;
-2. that they can be specified;
-3. that they can be transferred into an object we don’t understand.
-It may surprise you that none of the three holds. Explaining why would take an article of its own; I go into it in the paper this piece comes from.
+A word of caution, though. These figures leave out model training and, above all, the water used indirectly by the power plants that generate the electricity. According to Lawrence Berkeley National Laboratory, in the United States this indirect water is about twelve times the water used directly for cooling. Yet even multiplying by ten, we are still talking about a few millilitres per query. For comparison, the water footprint of a cup of coffee is estimated at around 130 litres, and that of a kilo of beef at around 15,000. So does this mean [(to half-quote a book)](https://www.amazon.it/mangiare-bistecca-scientifica-ambientalismo-consapevole/dp/8804754478) that if we eat less beef, we can use more AI?
 
-There is, however, a right question, and I think it can be put like this: which behaviours does the process that produces these systems make stable, and how do we change that process?
+Getting the numbers right and reasoning in purely quantitative terms is not a way of letting anyone off the hook. We need to argue with the facts on the table, because if we measure badly, we decide badly.
 
-Let me explain.
+The impact is real, but it isn’t where we’re looking. It isn’t in the single prompt I send to Claude from my bedroom, asking it to translate this article into elegant English. It’s in the place where a data centre is built and in the energy it consumes.
 
-Every model is the product of selection (like everything else), operating on three levels:
-1. **Training** (hours to weeks): optimisation keeps whatever maximises reward, including unwanted behaviours such as cheating on tests.
-2. **Market** (months): users and investors choose models and companies, and with them the amount of safety it “pays” to practise.
-3. **Geopolitics** (years): states compete and decide how much to regulate and how much to cooperate.
+In 2023, US data centres directly used about 64 billion litres of water for cooling, a figure that could double or quadruple by 2028. In some cases a single facility uses more than a quarter of a community’s available water. Globally, the International Energy Agency estimates that data centres consumed about 415 terawatt-hours of electricity in 2024 (around 1.5% of the world total), and that this could exceed 900 by 2030.
 
-Selection rewards neither goodness nor malice: it rewards whatever persists in the given environment. The good news is that the environment can be changed.
+So yes, there is an environmental problem, but it is highly local and mostly about energy. The good news is that it’s also a “normal” problem, in the sense that it can be tackled in a targeted way. We need to act on **where** we build, **how** we cool, **where** the energy comes from and **how transparent** we are about it. None of this is free: [there’s no such thing as a free lunch](https://en.wikipedia.org/wiki/No_such_thing_as_a_free_lunch). Everything has a price, and here the price is some bureaucracy and regulation, with permits and disclosure obligations.
 
-#### **Alignment**
+So the second question is: _“why is the water issue so popular? Why is it so easy to talk about?” (Apologies, these are two questions)_
 
-One finding in recent research is more worrying than the rest: behaviours don’t stay where you put them. Anthropic showed that a model that learns to cheat on coding tests generalises to alignment faking and sabotage. Another study showed that deliberately implanted deceptive behaviour survives standard safety training.
+Water is an almost perfect topic: concrete, familiar (we use it every day), measurable and easy to moralise. And there’s more: we need water to live. Talking about water means talking about people who live and die. All of this turns into an individual choice (“I don’t use AI”) that gives the feeling of doing something, even when it doesn’t. It’s part of a phenomenon I can’t stand, virtue signalling (or, more simply, moral exhibitionism, which I’ve written about [here](https://stefanocoelatirama.com/blog/moral-exhibitionism/)).
 
-I propose reading all of this through a concept borrowed from physics: metastability. A disposition, such as honesty or refusing to help build weapons, is a basin in the space of behaviours. The useful question, then, is not whether a model is “aligned” (good luck proving that), but how deep the basin is: how much pressure does it take to push the model out?
+The point is that individual abstention doesn’t change the system. (Someone might object that if one person does it, everyone will; that we have to start somewhere; that a waterfall is made of drops; or that we should set a good example. But I don’t want to be an example to anyone: I want to live my life by the rules and, above all, I want to do useful things.) In fact, I think a choice that is “moral” only in appearance is harmful, because it draws attention away from harder problems that don’t yet have a price.
 
-This question has one huge advantage: it can be measured. In a public red-teaming competition, 1.8 million attacks against 22 frontier agents produced more than 60,000 violations, and almost every agent gave way within 10–100 attempts. A curve of “attempts needed to cause a violation” tells you far more than any “safe / unsafe” label.
+Models cheat. On CheatBench, from the Center for AI Safety, the most advanced models of 2026 take dishonest shortcuts in about half of the cases where honesty is only implied.
 
-#### **Tests can only say “no”**
+As I wrote in a [previous article](https://www.linkedin.com/pulse/we-cant-program-values-ai-stefano-coelati-rama-9fade/), behaviours don’t stay where you put them. Anthropic showed that a model that learns to cheat on coding tests generalises to sabotage and alignment faking. And beyond cheating, agents are fragile: they give way and break the very rules they’re supposed to operate within. In a public red-teaming competition, almost every frontier agent violated its own rules within 10–100 attempts. Meanwhile, in the most exposed occupations, employment among 22-to-25-year-olds is about 19% below that of their peers, mainly because they’re no longer being hired.
 
-Forgive me in advance for a little philosophy: I promise to keep it short, but I think it really helps. Umberto Eco spoke of negative (or minimal) realism: reality doesn’t tell us which description is right, only which ones fail. AI safety works the same way. A test can show that a model has a dangerous capability, but it can never prove that it doesn’t. And models are getting better at recognising when they are being evaluated.
+And, most importantly, tests aren’t enough. They can show that a risk exists, never that it doesn’t. On top of that, models increasingly recognise when they’re being evaluated, while managing risk requires solid measurements and quantitative data.
 
-Three principles follow:
+In strictly economic terms, water is a cost we know how to see. The risk of an autonomous system misbehaving in a critical setting is a cost we don’t yet know how to price. And we can’t ignore something that will eventually cause an incident: it’s not a question of if, but when.
 
-- safety conclusions should be treated as revisable presumptions, not final certificates;
-- the assumptions behind them should be stated;
-- the thresholds that trigger action should be set before testing, not after seeing the results.
+In the video I mentioned at the start, Luciano Floridi says that in a desert one extra shower makes a difference, just as five kilos matter to someone who needs to lose a lot of weight. He’s right: in places that really are deserts, a data centre can weigh heavily, which is exactly why the problem has to be tackled place by place (Furthermore, we should also remember that we, as a planet, are in a closed system.). But in general we risk looking at the finger instead of the moon. Our main problem isn’t water scarcity: it’s that we’re economically devastated (and the energy issue is a key point in it; I will never stop saying how much we need to return to nuclear power) and our infrastructure isn’t ready to handle this new technology.
 
+If we want to take the impact of AI seriously, environmental and otherwise, and try to bring wellbeing and prosperity to as many people as possible (setting aside the nonsense of “happy degrowth”), the sensible demands are few and concrete:
 
-**What changes for a company?**
+1. **Standardised environmental transparency**: energy, direct and indirect water use, location and energy source for every large data centre.
+2. **Measured robustness**: not “safe / unsafe” labels, but curves showing how much pressure it takes to make a system fail.
+3. **Liability and insurance**: if the cost of harm falls on those who build and deploy the system, safety enters the balance sheet.
+4. **In-house expertise**: someone whose mandate is the behaviour of models, not just their formal compliance.
 
-The regulatory landscape keeps evolving. In Europe, the AI Act’s obligations for general-purpose models already apply. The Code of Practice requires serious incidents to be reported within 2–15 days. The Digital Omnibus has moved high-risk obligations to 2 December 2027. In California and New York, SB 53 and the RAISE Act require public safety frameworks and incident reporting.
+And I’ll stop here.
 
-Yet there is an organisational gap: we have a problem, but no one in place to own it. The CISO handles attacks, the DPO handles personal data, compliance handles the rules. But nobody’s mandate covers the behaviour of the model itself: the fact that an agent might cheat, evade monitoring or act unexpectedly in a new context.
+Worrying about AI is right. But it pays to worry about the right things.
 
-That is the space for a new function, which I expect will be called the Chief AI Safety Officer. As I see it, these will be its five core tasks:
+_Background: computer science and telecommunications, philosophy (logic, formal and computational epistemology), now stochastic mathematics. I used AI tools for literature search; the arguments, writing and editing are my own._
 
-1. keeping an inventory of systems and agents, with their permissions;
-2. measuring robustness as a curve, not as a useless declarative verdict;
-3. monitoring model reasoning while it remains legible;
-4. ensuring agents can always be interrupted and have a traceable identity;
-5. setting incident procedures aligned with legal deadlines and insurers’ requirements.
+- Li, P., Yang, J., Islam, M. A., Ren, S. (2023). Making AI Less “Thirsty”: Uncovering and Addressing the Secret Water Footprint of AI Models. [https://arxiv.org/abs/2304.03271](https://arxiv.org/abs/2304.03271)
+- Elsworth, C. et al. (2025). Measuring the environmental impact of delivering AI at Google Scale. [https://arxiv.org/abs/2508.15734](https://arxiv.org/abs/2508.15734)
+- Shehabi, A. et al. (2024). 2024 United States Data Center Energy Usage Report. Lawrence Berkeley National Laboratory. Sintesi su AIhub: [https://aihub.org/2025/09/24/data-centers-consume-massive-amounts-of-water-companies-rarely-tell-the-public-exactly-how-much](https://aihub.org/2025/09/24/data-centers-consume-massive-amounts-of-water-companies-rarely-tell-the-public-exactly-how-much)
+- International Energy Agency (2025). Energy and AI. [https://www.iea.org/reports/energy-and-ai](https://www.iea.org/reports/energy-and-ai)
+- Mekonnen, M. M., Hoekstra, A. Y. (2012). A Global Assessment of the Water Footprint of Farm Animal Products. Ecosystems 15. Water Footprint Network.
+- Phan, L. et al. (2026). CheatBench: Measuring Reward Gaming in AI Agents. [https://arxiv.org/abs/2609.36308](https://arxiv.org/abs/2609.36308)
+- MacDiarmid, M. et al. (2025). Natural Emergent Misalignment from Reward Hacking in Production RL. [https://arxiv.org/abs/2511.18397](https://arxiv.org/abs/2511.18397)
+- Zou, A. et al. (2025). Security Challenges in AI Agent Deployment: Insights from a Large Scale Public Competition. NeurIPS 2025.
+- Brynjolfsson, E., Chandar, B., Chen, R. (2026). No Widespread Displacement, but the AI Employment Gap for Young Workers Has Widened to 19%. [https://digitaleconomy.stanford.edu/news/canariesaug26/](https://digitaleconomy.stanford.edu/news/canariesaug26/)
+- Szpruch, L. et al. (2026). Insuring AI: Incentivizing Safe and Secure Deployment. [https://doi.org/10.1162/99608f92.bd811034](https://doi.org/10.1162/99608f92.bd811034)
 
-AI governance handbooks themselves warn against “checkbox compliance”, a dangerous and underrated risk: meeting minimum requirements as cheaply as possible and getting only the appearance of safety. And the appearance of safety is more dangerous than the threat itself, because it catches us unprepared, exposed and defenceless. I believe this function exists precisely to prevent that.
-
-#### **In short**
-
-There will never be a day when alignment is “solved”, just as there is no organism that is finally adapted. There is a process to govern. The job is to make sure that what survives is also what is safe.
-
-I have developed these ideas in a longer paper, with a risk map, an analysis of European, Italian and international governance, and several operational proposals.
-
-#### **Sources:**
-
-Phan, L. et al. (2026). CheatBench: Measuring Reward Gaming in AI Agents. Center for AI Safety. https://arxiv.org/abs/2609.36308
-
-Bengio, Y. et al. (2024). International Scientific Report on the Safety of Advanced AI: Interim Report. https://arxiv.org/abs/2412.05282
-
-Bengio, Y. et al. (2026). International AI Safety Report 2026. https://internationalaisafetyreport.org/
-
-MacDiarmid, M. et al. (2025). Natural Emergent Misalignment from Reward Hacking in Production RL. Anthropic. https://arxiv.org/abs/2511.18397
-
-Hubinger, E. et al. (2024). Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training. https://arxiv.org/abs/2401.05566
-
-Zou, A. et al. (2025). Security Challenges in AI Agent Deployment: Insights from a Large Scale Public Competition. NeurIPS 2025.
-
-Shevlane, T. et al. (2023). Model evaluation for extreme risks. https://arxiv.org/abs/2305.15324
-
-Korbak, T. et al. (2025). Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety. https://arxiv.org/abs/2507.11473
-
-Eco, U. (2012). Di un realismo negativo. In De Caro, M., Ferraris, M. (a cura di), Bentornata realtà. Einaudi.
-
-Regolamento (UE) 2024/1689 (AI Act). https://eur-lex.europa.eu/eli/reg/2024/1689/oj
-
-Codice di condotta per i modelli di IA per finalità generali (2025). https://artificialintelligenceact.eu/code-of-practice/
-
-Digital Omnibus, Regolamento (UE) 2026/1744 (sintesi Orrick). https://www.orrick.com/en/Insights/2026/07/EU-AI-Act-Update-Digital-Omnibus-Finalizes-8-Compliance-Changes
-
-Future of Privacy Forum (2026). The RAISE Act vs. SB 53. https://fpf.org/blog/the-raise-act-vs-sb-53-a-tale-of-two-frontier-ai-laws/
-
-Singapore Consensus on Global AI Safety Research Priorities (2026). https://arxiv.org/abs/2608.14611
-
-Szpruch, L. et al. (2026). Insuring AI: Incentivizing Safe and Secure Deployment. Harvard Data Science Review. https://doi.org/10.1162/99608f92.bd811034
-
-Gregory, P. H. (2026). IAPP AIGP Artificial Intelligence Governance Professional Study Guide. Wiley.
-
-Background: computer science and telecommunications, philosophy (logic, formal and computational epistemology), now stochastic mathematics. I used AI tools for literature search; the arguments, writing and editing are my own.
-
-#AISafety #AIGovernance #AIAlignment #ResponsibleAI #AIAct #EUAIAct #AIRisk #ChiefAISafetyOfficer #MachineLearning #TechPolicy
+#AISafety #AIGovernance #DigitalSustainability #DataCenters #ResponsibleAI #ArtificialIntelligence #AIAct #GreenAI
