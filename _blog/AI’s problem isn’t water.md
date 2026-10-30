@@ -5,7 +5,7 @@ summary: If we keep putting soul-cleansing first when dealing with artificial in
 tags:
   - essay
   - english
-  - AI
+  - ai
 source: https://www.linkedin.com/pulse/ais-problem-isnt-water-stefano-coelati-rama-oidff/
 ---
 Lately I’ve been flooded with content about the costs, broadly speaking, of today’s artificial intelligence. Talking with friends and watching videos featuring some [“important” people](https://www.youtube.com/watch?v=NifdZz9ptWk), I’ve noticed that whenever AI comes up, sooner or later someone says it: _“Did you know every ChatGPT question uses half a litre of water?”_ It has become a conditioned reflex, almost a purification ritual (of the soul, not the water) before using a tool that, deep down, we all use.
